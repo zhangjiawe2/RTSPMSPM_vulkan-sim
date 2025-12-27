@@ -1,0 +1,48 @@
+#version 460
+#extension GL_EXT_shader_explicit_arithmetic_types_int32 : require
+#extension GL_EXT_ray_tracing : require
+#extension GL_EXT_buffer_reference2 : require
+#extension GL_EXT_scalar_block_layout : require
+#extension GL_EXT_shader_atomic_float : require
+#extension GL_GOOGLE_include_directive : require
+#extension GL_EXT_debug_printf : require
+#include "common.glsl"
+
+layout(set = 0, binding = 2) buffer ResultBuffer {
+    float result[];
+};
+
+layout(set = 0 ,binding = 3) buffer vertexBuffer{
+    float vertex[];
+};
+
+layout(set = 0 ,binding = 4) buffer ValueBuffer{
+    float value[];
+};
+
+layout(set = 0 ,binding = 5) buffer ShaderNeedInfoBuffer{
+    ShaderNeedInfo info;
+};
+layout(location = 0) rayPayloadInEXT vec3 payload;
+
+void main()
+{
+    uint primID = gl_PrimitiveID;
+
+    float value1 = payload.z;
+    float value2 = value[primID];
+    uint colIndex = uint(vertex[primID*9+1]);
+    uint rowIndex = uint(payload.x);
+
+    //插入的位置 rowIndex*rowcount+colIndex , 还需要传递一个 rowCount
+    uint colcount = info.ResultCol;
+    uint valueIndex = (rowIndex-1)*colcount+colIndex-1;
+
+    // result[0]=value1;
+    // result[1]=value[primID];
+    // atomicAdd(result[valueIndex], value1 * value2);
+    result[valueIndex] = result[valueIndex] + value1*value2;
+
+
+    ignoreIntersectionEXT;
+}

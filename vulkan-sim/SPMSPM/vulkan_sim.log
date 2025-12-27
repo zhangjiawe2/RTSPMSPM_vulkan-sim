@@ -1,0 +1,2185 @@
+MESA: Linking to LLVM resource bind packing.
+Getting ray tracing pipeline properties...
+Vertices: 6 Indices: 6 values: 2
+LVP: vkBuffer size 104 created at 0x7ffe7ae9d7d8
+LLVM: llvmpipe_resource_bind_backing: pipe_screen 0x5e138cd725b0; pipe_resource 0x5e138cd762e0; llvmpipe_resource 0x5e138cd762e0; pipe_memory_allocation 0x5e138cd77000;
+LVP: Binding lvp_buffer 0x5e138cd76260: buffer->bo: 0x5e138cd762e0; buffer->pmem: 0x5e138cd77000; memory-offset: 0;
+
+
+        *** GPGPU-Sim Simulator Version 4.0.0 - Vulkan-Sim version 2.0.0  [build gpgpu-sim_git-commit-dc742faa6e5fcfaf415fe51eab71dcf9345388fd_modified_0.0] ***
+
+
+GPGPU-Sim PTX: simulation mode 0 (can change with PTX_SIM_MODE_FUNC environment variable:
+               1=functional simulation only, 0=detailed performance simulator)
+GPGPU-Sim PTX: overriding embedded ptx with ptx file (PTX_SIM_USE_PTX_FILE is set)
+GPGPU-Sim: Configuration options:
+
+-save_embedded_ptx                      0 # saves ptx files embedded in binary as <n>.ptx
+-keep                                   0 # keep intermediate files created by GPGPU-Sim when interfacing with external programs
+-gpgpu_ptx_save_converted_ptxplus                    0 # Saved converted ptxplus to a file
+-gpgpu_occupancy_sm_number                   75 # The SM number to pass to ptxas when getting register usage for computing GPU occupancy. This parameter is required in the config.
+-ptx_opcode_latency_int      4,13,4,5,145,32 # Opcode latencies for integers <ADD,MAX,MUL,MAD,DIV,SHFL>Default 1,1,19,25,145,32
+-ptx_opcode_latency_fp          4,13,4,5,39 # Opcode latencies for single precision floating points <ADD,MAX,MUL,MAD,DIV>Default 1,1,1,1,30
+-ptx_opcode_latency_dp         8,19,8,8,330 # Opcode latencies for double precision floating points <ADD,MAX,MUL,MAD,DIV>Default 8,8,8,8,335
+-ptx_opcode_latency_sfu                  100 # Opcode latencies for SFU instructionsDefault 8
+-ptx_opcode_latency_tesnor                   64 # Opcode latencies for Tensor instructionsDefault 64
+-ptx_opcode_initiation_int          2,2,2,2,8,4 # Opcode initiation intervals for integers <ADD,MAX,MUL,MAD,DIV,SHFL>Default 1,1,4,4,32,4
+-ptx_opcode_initiation_fp            2,2,2,2,4 # Opcode initiation intervals for single precision floating points <ADD,MAX,MUL,MAD,DIV>Default 1,1,1,1,5
+-ptx_opcode_initiation_dp          4,4,4,4,130 # Opcode initiation intervals for double precision floating points <ADD,MAX,MUL,MAD,DIV>Default 8,8,8,8,130
+-ptx_opcode_initiation_sfu                    8 # Opcode initiation intervals for sfu instructionsDefault 8
+-ptx_opcode_initiation_tensor                   64 # Opcode initiation intervals for tensor instructionsDefault 64
+-cdp_latency         7200,8000,100,12000,1600 # CDP API latency <cudaStreamCreateWithFlags, cudaGetParameterBufferV2_init_perWarp, cudaGetParameterBufferV2_perKernel, cudaLaunchDeviceV2_init_perWarp, cudaLaunchDevicV2_perKernel>Default 7200,8000,100,12000,1600
+-network_mode                           2 # Interconnection network mode
+-inter_config_file                   mesh # Interconnection network config file
+-icnt_in_buffer_limit                  512 # in_buffer_limit
+-icnt_out_buffer_limit                  512 # out_buffer_limit
+-icnt_subnets                           2 # subnets
+-icnt_arbiter_algo                      1 # arbiter_algo
+-icnt_verbose                           0 # inct_verbose
+-icnt_grant_cycles                      1 # grant_cycles
+-gpgpu_ptx_use_cuobjdump                    1 # Use cuobjdump to extract ptx and sass from binaries
+-gpgpu_experimental_lib_support                    0 # Try to extract code from cuda libraries [Broken because of unknown cudaGetExportTable]
+-checkpoint_option                      0 #  checkpointing flag (0 = no checkpoint)
+-checkpoint_kernel                      1 #  checkpointing during execution of which kernel (1- 1st kernel)
+-checkpoint_CTA                         0 #  checkpointing after # of CTA (< less than total CTA)
+-resume_option                          0 #  resume flag (0 = no resume)
+-resume_kernel                          0 #  Resume from which kernel (1= 1st kernel)
+-resume_CTA                             0 #  resume from which CTA 
+-checkpoint_CTA_t                       0 #  resume from which CTA 
+-checkpoint_insn_Y                      0 #  resume from which CTA 
+-gpgpu_ptx_convert_to_ptxplus                    0 # Convert SASS (native ISA) to ptxplus and run ptxplus
+-gpgpu_ptx_force_max_capability                   75 # Force maximum compute capability
+-gpgpu_ptx_inst_debug_to_file                    0 # Dump executed instructions' debug information to file
+-gpgpu_ptx_inst_debug_file       inst_debug.txt # Executed instructions' debug output file
+-gpgpu_ptx_inst_debug_thread_uid                    1 # Thread UID for executed instructions' debug output
+-gpgpu_simd_model                       1 # 1 = post-dominator
+-gpgpu_simd_rec_time_out                   -1 # -1 = no reconvergence time out
+-gpgpu_simd_rec_size                    6 # number of physical entries in the reconvergence table
+-gpgpu_simd_st_size                     6 # number of physical entries in the splits table
+-gpgpu_simd_rec_replacement                    0 # reconvergence table replacement policy
+-gpgpu_simd_st_replacement                    0 # splits table replacement policy
+-gpgpu_shader_core_pipeline              1024:32 # shader core pipeline config, i.e., {<nthread>:<warpsize>}
+-gpgpu_tex_cache:l1  N:4:128:256,L:R:m:N:L,T:512:8,128:2 # per-shader L1 texture cache  (READ-ONLY) config  {<nsets>:<bsize>:<assoc>,<rep>:<wr>:<alloc>:<wr_alloc>,<mshr>:<N>:<merge>,<mq>:<rf>}
+-gpgpu_const_cache:l1 N:128:64:8,L:R:f:N:L,S:2:64,4 # per-shader L1 constant memory cache  (READ-ONLY) config  {<nsets>:<bsize>:<assoc>,<rep>:<wr>:<alloc>:<wr_alloc>,<mshr>:<N>:<merge>,<mq>} 
+-gpgpu_rt_cache:l1   S:32:128:16,L:R:m:L:P,A:256:256,32:0,32 # per-shader L1 constant memory cache  (READ-ONLY) config  {<nsets>:<bsize>:<assoc>,<rep>:<wr>:<alloc>:<wr_alloc>,<mshr>:<N>:<merge>,<mq>} 
+-gpgpu_rt_use_l1                        1 # use existing L1 cache instead of dedicated L0 cache 
+-gpgpu_rt_perfect_mem                    0 # assume 0 latency BVH accesses 
+-gpgpu_rt_coherence_engine                    0 # enable coherency engine (ray sorting) 
+-gpgpu_rt_coherence_engine_config   100,10,4,g,0,3,2,0 # max cycles, hash 
+-gpgpu_rt_disable_rt_cache                    0 # bypass RT cache and connect RT unit directly to interconnect 
+-gpgpu_rt_max_warps                     4 # max number of warps concurrently in one rt core 
+-gpgpu_rt_max_mshr                     64 # max number of MSHR entries in RT unit 
+-gpgpu_rt_coalesce_warps                    0 # try to coalesce memory requests between warps 
+-gpgpu_rt_intersection_latency        4,8,8,4,8,8,8 # latency of pipelined intersection tests (7 types)
+-gpgpu_rt_intersection_table_type                    0 # type of intersection table
+-gpgpu_cache:il1     N:64:128:16,L:R:f:N:L,S:2:48,4 # shader L1 instruction cache config  {<nsets>:<bsize>:<assoc>,<rep>:<wr>:<alloc>:<wr_alloc>,<mshr>:<N>:<merge>,<mq>} 
+-gpgpu_cache:dl1     S:1:128:512,L:L:s:N:L,A:256:8,16:0,32 # per-shader L1 data cache config  {<nsets>:<bsize>:<assoc>,<rep>:<wr>:<alloc>:<wr_alloc>,<mshr>:<N>:<merge>,<mq> | none}
+-gpgpu_l1_banks                         4 # The number of L1 cache banks
+-gpgpu_l1_banks_byte_interleaving                   32 # l1 banks byte interleaving granularity
+-gpgpu_l1_banks_hashing_function                    0 # l1 banks hashing function
+-gpgpu_l1_latency                      20 # L1 Hit Latency
+-gpgpu_smem_latency                    20 # smem Latency
+-gpgpu_cache:dl1PrefL1                 none # per-shader L1 data cache config  {<nsets>:<bsize>:<assoc>,<rep>:<wr>:<alloc>:<wr_alloc>,<mshr>:<N>:<merge>,<mq> | none}
+-gpgpu_cache:dl1PrefShared                 none # per-shader L1 data cache config  {<nsets>:<bsize>:<assoc>,<rep>:<wr>:<alloc>:<wr_alloc>,<mshr>:<N>:<merge>,<mq> | none}
+-gpgpu_gmem_skip_L1D                    0 # global memory access skip L1D cache (implements -Xptxas -dlcm=cg, default=no skip)
+-gpgpu_perfect_mem                      0 # enable perfect memory mode (no cache miss)
+-n_regfile_gating_group                    4 # group of lanes that should be read/written together)
+-gpgpu_clock_gated_reg_file                    0 # enable clock gated reg file for power calculations
+-gpgpu_clock_gated_lanes                    0 # enable clock gated lanes for power calculations
+-gpgpu_shader_registers                65536 # Number of registers per shader core. Limits number of concurrent CTAs. (default 8192)
+-gpgpu_registers_per_block                65536 # Maximum number of registers per CTA. (default 8192)
+-gpgpu_ignore_resources_limitation                    0 # gpgpu_ignore_resources_limitation (default 0)
+-gpgpu_shader_cta                      32 # Maximum number of concurrent CTAs in shader (default 8)
+-gpgpu_num_cta_barriers                   16 # Maximum number of named barriers per CTA (default 16)
+-gpgpu_n_clusters                      30 # number of processing clusters
+-gpgpu_n_cores_per_cluster                    1 # number of simd cores per cluster
+-gpgpu_n_cluster_ejection_buffer_size                   32 # number of packets in ejection buffer
+-gpgpu_n_ldst_response_buffer_size                    2 # number of response packets in ld/st unit ejection buffer
+-gpgpu_shmem_per_block                65536 # Size of shared memory per thread block or CTA (default 48kB)
+-gpgpu_shmem_size                   65536 # Size of shared memory per shader core (default 16kB)
+-gpgpu_adaptive_cache_config                    0 # adaptive_cache_config
+-gpgpu_shmem_sizeDefault                65536 # Size of shared memory per shader core (default 16kB)
+-gpgpu_shmem_size_PrefL1                16384 # Size of shared memory per shader core (default 16kB)
+-gpgpu_shmem_size_PrefShared                16384 # Size of shared memory per shader core (default 16kB)
+-gpgpu_shmem_num_banks                   32 # Number of banks in the shared memory in each shader core (default 16)
+-gpgpu_shmem_limited_broadcast                    0 # Limit shared memory to do one broadcast per cycle (default on)
+-gpgpu_shmem_warp_parts                    1 # Number of portions a warp is divided into for shared memory bank conflict check 
+-gpgpu_mem_unit_ports                    1 # The number of memory transactions allowed per core cycle
+-gpgpu_shmem_warp_parts                    1 # Number of portions a warp is divided into for shared memory bank conflict check 
+-gpgpu_warpdistro_shader                   -1 # Specify which shader core to collect the warp size distribution from
+-gpgpu_warp_issue_shader                    0 # Specify which shader core to collect the warp issue distribution from
+-gpgpu_local_mem_map                    1 # Mapping from local memory space address to simulated GPU physical address space (default = enabled)
+-gpgpu_num_reg_banks                   16 # Number of register banks (default = 8)
+-gpgpu_reg_bank_use_warp_id                    0 # Use warp ID in mapping registers to banks (default = off)
+-gpgpu_sub_core_model                    1 # Sub Core Volta/Pascal model (default = off)
+-gpgpu_enable_specialized_operand_collector                    0 # enable_specialized_operand_collector
+-gpgpu_operand_collector_num_units_sp                    4 # number of collector units (default = 4)
+-gpgpu_operand_collector_num_units_dp                    0 # number of collector units (default = 0)
+-gpgpu_operand_collector_num_units_sfu                    4 # number of collector units (default = 4)
+-gpgpu_operand_collector_num_units_int                    0 # number of collector units (default = 0)
+-gpgpu_operand_collector_num_units_tensor_core                    4 # number of collector units (default = 4)
+-gpgpu_operand_collector_num_units_mem                    2 # number of collector units (default = 2)
+-gpgpu_operand_collector_num_units_gen                    8 # number of collector units (default = 0)
+-gpgpu_operand_collector_num_in_ports_sp                    1 # number of collector unit in ports (default = 1)
+-gpgpu_operand_collector_num_in_ports_dp                    0 # number of collector unit in ports (default = 0)
+-gpgpu_operand_collector_num_in_ports_sfu                    1 # number of collector unit in ports (default = 1)
+-gpgpu_operand_collector_num_in_ports_int                    0 # number of collector unit in ports (default = 0)
+-gpgpu_operand_collector_num_in_ports_tensor_core                    1 # number of collector unit in ports (default = 1)
+-gpgpu_operand_collector_num_in_ports_mem                    1 # number of collector unit in ports (default = 1)
+-gpgpu_operand_collector_num_in_ports_gen                    8 # number of collector unit in ports (default = 0)
+-gpgpu_operand_collector_num_out_ports_sp                    1 # number of collector unit in ports (default = 1)
+-gpgpu_operand_collector_num_out_ports_dp                    0 # number of collector unit in ports (default = 0)
+-gpgpu_operand_collector_num_out_ports_sfu                    1 # number of collector unit in ports (default = 1)
+-gpgpu_operand_collector_num_out_ports_int                    0 # number of collector unit in ports (default = 0)
+-gpgpu_operand_collector_num_out_ports_tensor_core                    1 # number of collector unit in ports (default = 1)
+-gpgpu_operand_collector_num_out_ports_mem                    1 # number of collector unit in ports (default = 1)
+-gpgpu_operand_collector_num_out_ports_gen                    8 # number of collector unit in ports (default = 0)
+-gpgpu_coalesce_arch                   75 # Coalescing arch (GT200 = 13, Fermi = 20)
+-gpgpu_num_sched_per_core                    4 # Number of warp schedulers per core
+-gpgpu_max_insn_issue_per_warp                    1 # Max number of instructions that can be issued per warp in one cycle by scheduler (either 1 or 2)
+-gpgpu_dual_issue_diff_exec_units                    1 # should dual issue use two different execution unit resources (Default = 1)
+-gpgpu_simt_core_sim_order                    1 # Select the simulation order of cores in a cluster (0=Fix, 1=Round-Robin)
+-gpgpu_pipeline_widths 4,0,4,4,4,4,0,4,4,4,8,4,4,4,4 # Pipeline widths ID_OC_SP,ID_OC_DP,ID_OC_INT,ID_OC_SFU,ID_OC_MEM,OC_EX_SP,OC_EX_DP,OC_EX_INT,OC_EX_SFU,OC_EX_MEM,EX_WB,ID_OC_TENSOR_CORE,OC_EX_TENSOR_CORE,ID_OC_RT,OC_EX_RT
+-gpgpu_tensor_core_avail                    1 # Tensor Core Available (default=0)
+-gpgpu_num_sp_units                     4 # Number of SP units (default=1)
+-gpgpu_num_dp_units                     0 # Number of DP units (default=0)
+-gpgpu_num_int_units                    4 # Number of INT units (default=0)
+-gpgpu_num_sfu_units                    4 # Number of SF units (default=1)
+-gpgpu_num_tensor_core_units                    4 # Number of tensor_core units (default=1)
+-gpgpu_num_rt_core_units                    1 # Number of rt core units (default=1)
+-gpgpu_num_mem_units                    1 # Number if ldst units (default=1) WARNING: not hooked up to anything
+-gpgpu_scheduler                      gto # Scheduler configuration: < lrr | gto | two_level_active > If two_level_active:<num_active_warps>:<inner_prioritization>:<outer_prioritization>For complete list of prioritization values see shader.h enum scheduler_prioritization_typeDefault: gto
+-gpgpu_concurrent_kernel_sm                    0 # Support concurrent kernels on a SM (default = disabled)
+-gpgpu_perfect_inst_const_cache                    1 # perfect inst and const cache mode, so all inst and const hits in the cache(default = disabled)
+-gpgpu_inst_fetch_throughput                    4 # the number of fetched intruction per warp each cycle
+-gpgpu_reg_file_port_throughput                    2 # the number ports of the register file
+-specialized_unit_1         0,4,4,4,4,BRA # specialized unit config {<enabled>,<num_units>:<latency>:<initiation>,<ID_OC_SPEC>:<OC_EX_SPEC>,<NAME>}
+-specialized_unit_2         0,4,4,4,4,BRA # specialized unit config {<enabled>,<num_units>:<latency>:<initiation>,<ID_OC_SPEC>:<OC_EX_SPEC>,<NAME>}
+-specialized_unit_3         0,4,4,4,4,BRA # specialized unit config {<enabled>,<num_units>:<latency>:<initiation>,<ID_OC_SPEC>:<OC_EX_SPEC>,<NAME>}
+-specialized_unit_4         0,4,4,4,4,BRA # specialized unit config {<enabled>,<num_units>:<latency>:<initiation>,<ID_OC_SPEC>:<OC_EX_SPEC>,<NAME>}
+-specialized_unit_5         0,4,4,4,4,BRA # specialized unit config {<enabled>,<num_units>:<latency>:<initiation>,<ID_OC_SPEC>:<OC_EX_SPEC>,<NAME>}
+-specialized_unit_6         0,4,4,4,4,BRA # specialized unit config {<enabled>,<num_units>:<latency>:<initiation>,<ID_OC_SPEC>:<OC_EX_SPEC>,<NAME>}
+-specialized_unit_7         0,4,4,4,4,BRA # specialized unit config {<enabled>,<num_units>:<latency>:<initiation>,<ID_OC_SPEC>:<OC_EX_SPEC>,<NAME>}
+-specialized_unit_8         0,4,4,4,4,BRA # specialized unit config {<enabled>,<num_units>:<latency>:<initiation>,<ID_OC_SPEC>:<OC_EX_SPEC>,<NAME>}
+-gpgpu_perf_sim_memcpy                    1 # Fill the L2 cache on memcpy
+-gpgpu_simple_dram_model                    0 # simple_dram_model with fixed latency and BW
+-gpgpu_dram_scheduler                    1 # 0 = fifo, 1 = FR-FCFS (defaul)
+-gpgpu_dram_partition_queues          64:64:64:64 # i2$:$2d:d2$:$2i
+-l2_ideal                               0 # Use a ideal L2 cache that always hit
+-gpgpu_cache:dl2     S:64:128:16,L:B:m:L:P,A:192:4,32:0,32 # unified banked L2 data cache config  {<nsets>:<bsize>:<assoc>,<rep>:<wr>:<alloc>:<wr_alloc>,<mshr>:<N>:<merge>,<mq>}
+-gpgpu_cache:dl2_texture_only                    0 # L2 cache used for texture only
+-gpgpu_n_mem                           12 # number of memory modules (e.g. memory controllers) in gpu
+-gpgpu_n_sub_partition_per_mchannel                    2 # number of memory subpartition in each memory module
+-gpgpu_n_mem_per_ctrlr                    1 # number of memory chips per memory controller
+-gpgpu_memlatency_stat                   14 # track and display latency statistics 0x2 enables MC, 0x4 enables queue logs
+-gpgpu_frfcfs_dram_sched_queue_size                   64 # 0 = unlimited (default); # entries per chip
+-gpgpu_dram_return_queue_size                  192 # 0 = unlimited (default); # entries per chip
+-gpgpu_dram_buswidth                    2 # default = 4 bytes (8 bytes per cycle at DDR)
+-gpgpu_dram_burst_length                   16 # Burst length of each DRAM request (default = 4 data bus cycle)
+-dram_data_command_freq_ratio                    4 # Frequency ratio between DRAM data bus and command bus (default = 2 times, i.e. DDR)
+-gpgpu_dram_timing_opt nbk=16:CCD=4:RRD=10:RCD=20:RAS=50:RP=20:RC=62: CL=20:WL=8:CDLR=9:WR=20:nbkgrp=4:CCDL=4:RTPL=4 # DRAM timing parameters = {nbk:tCCD:tRRD:tRCD:tRAS:tRP:tRC:CL:WL:tCDLR:tWR:nbkgrp:tCCDL:tRTPL}
+-gpgpu_l2_rop_latency                  160 # ROP queue latency (default 85)
+-dram_latency                         100 # DRAM latency (default 30)
+-dram_dual_bus_interface                    0 # dual_bus_interface (default = 0) 
+-dram_bnk_indexing_policy                    0 # dram_bnk_indexing_policy (0 = normal indexing, 1 = Xoring with the higher bits) (Default = 0)
+-dram_bnkgrp_indexing_policy                    1 # dram_bnkgrp_indexing_policy (0 = take higher bits, 1 = take lower bits) (Default = 0)
+-dram_seperate_write_queue_enable                    0 # Seperate_Write_Queue_Enable
+-dram_write_queue_size             32:28:16 # Write_Queue_Size
+-dram_elimnate_rw_turnaround                    0 # elimnate_rw_turnaround i.e set tWTR and tRTW = 0
+-icnt_flit_size                        40 # icnt_flit_size
+-gpgpu_mem_addr_mapping dramid@8;00000000.00000000.00000000.00000000.0000RRRR.RRRRRRRR.RBBBCCCC.BCCSSSSS # mapping memory address to dram model {dramid@<start bit>;<memory address map>}
+-gpgpu_mem_addr_test                    0 # run sweep test to check address mapping for aliased address
+-gpgpu_mem_address_mask                    1 # 0 = old addressing mask, 1 = new addressing mask, 2 = new add. mask + flipped bank sel and chip sel bits
+-gpgpu_memory_partition_indexing                    0 # 0 = no indexing, 1 = bitwise xoring, 2 = IPoly, 3 = custom indexing
+-gpuwattch_xml_file         gpuwattch.xml # GPUWattch XML file
+-power_simulation_enabled                    0 # Turn on power simulator (1=On, 0=Off)
+-power_per_cycle_dump                    0 # Dump detailed power output each cycle
+-power_trace_enabled                    1 # produce a file for the power trace (1=On, 0=Off)
+-power_trace_zlevel                     6 # Compression level of the power trace output log (0=no comp, 9=highest)
+-steady_power_levels_enabled                    1 # produce a file for the steady power levels (1=On, 0=Off)
+-steady_state_definition                  8:4 # allowed deviation:number of samples
+-gpgpu_intermittent_stats                    0 # print intermittent stats
+-gpgpu_intermittent_stats_freq                10000 # intermittent stats frequency
+-gpgpu_max_cycle                        0 # terminates gpu simulation early (0 = no limit)
+-gpgpu_max_insn                         0 # terminates gpu simulation early (0 = no limit)
+-gpgpu_max_cta                          0 # terminates gpu simulation early (0 = no limit)
+-gpgpu_max_completed_cta                    0 # terminates gpu simulation early (0 = no limit)
+-gpgpu_runtime_stat                   500 # display runtime statistics such as dram utilization {<freq>:<flag>}
+-liveness_message_freq                    1 # Minimum number of seconds between simulation liveness messages (0 = always print)
+-gpgpu_compute_capability_major                    7 # Major compute capability version number
+-gpgpu_compute_capability_minor                    5 # Minor compute capability version number
+-gpgpu_flush_l1_cache                    1 # Flush L1 cache at the end of each kernel call
+-gpgpu_flush_l2_cache                    0 # Flush L2 cache at the end of each kernel call
+-gpgpu_deadlock_detect                    1 # Stop the simulation at deadlock (1=on (default), 0=off)
+-gpgpu_ptx_instruction_classification                    1 # if enabled will classify ptx instruction types per kernel (Max 255 kernels now)
+-gpgpu_ptx_sim_mode                     0 # Select between Performance (default) or Functional simulation (1)
+-gpgpu_clock_domains 1365.0:1365.0:1365.0:3500.0 # Clock Domain Frequencies in MhZ {<Core Clock>:<ICNT Clock>:<L2 Clock>:<DRAM Clock>}
+-gpgpu_max_concurrent_kernel                    8 # maximum kernels that can run concurrently on GPU
+-gpgpu_cflog_interval                    0 # Interval between each snapshot in control flow logger
+-visualizer_enabled                     0 # Turn on visualizer output (1=On, 0=Off)
+-visualizer_outputfile     Characterization # Specifies the output log file for visualizer
+-visualizer_zlevel                      6 # Compression level of the visualizer output log (0=no comp, 9=highest)
+-gpgpu_stack_size_limit                 1024 # GPU thread stack size
+-gpgpu_heap_size_limit              8388608 # GPU malloc heap size 
+-gpgpu_runtime_sync_depth_limit                    2 # GPU device runtime synchronize depth
+-gpgpu_runtime_pending_launch_count_limit                 2048 # GPU device runtime pending launch count
+-trace_enabled                          0 # Turn on traces
+-trace_components                    none # comma seperated list of traces to enable. Complete list found in trace_streams.tup. Default none
+-trace_sampling_core                    0 # The core which is printed using CORE_DPRINTF. Default 0
+-trace_sampling_memory_partition                   -1 # The memory partition which is printed using MEMPART_DPRINTF. Default -1 (i.e. all)
+-enable_ptx_file_line_stats                    1 # Turn on PTX source line statistic profiling. (1 = On)
+-ptx_line_stats_filename gpgpu_inst_stats.txt # Output file for PTX source line statistics.
+-gpgpu_kernel_launch_latency                 5000 # Kernel launch latency in cycles. Default: 0
+-gpgpu_cdp_enabled                      0 # Turn on CDP
+-gpgpu_TB_launch_latency                    0 # thread block launch latency in cycles. Default: 0
+-gpgpu_max_simulated_rt_kernels                    2 # Max simulated kernels, used to limit how many frames we render. Default: 0
+Streaming cache with 8192 mshr
+GPGPU-Sim: Ray Coherence Engine Settings:
+	Enabled: No
+	Max cycles: 100
+	Max packets: 4
+	Sorting hash: grid-spherical
+	Bits: 3-2
+DRAM Timing Options:
+nbk                                    16 # number of banks
+CCD                                     4 # column to column delay
+RRD                                    10 # minimal delay between activation of rows in different banks
+RCD                                    20 # row to column delay
+RAS                                    50 # time needed to activate row
+RP                                     20 # time needed to precharge (deactivate) row
+RC                                     62 # row cycle time
+CDLR                                    9 # switching from write to read (changes tWTR)
+WR                                     20 # last data-in to row precharge
+CL                                     20 # CAS latency
+WL                                      8 # Write latency
+nbkgrp                                  4 # number of bank groups
+CCDL                                    4 # column to column delay between accesses to different bank groups
+RTPL                                    4 # read to precharge delay between accesses to different bank groups
+Total number of memory sub partition = 24
+addr_dec_mask[CHIP]  = 0000000000000000 	high:64 low:0
+addr_dec_mask[BK]    = 0000000000007080 	high:15 low:7
+addr_dec_mask[ROW]   = 000000000fff8000 	high:28 low:15
+addr_dec_mask[COL]   = 0000000000000f7f 	high:12 low:0
+addr_dec_mask[BURST] = 000000000000001f 	high:5 low:0
+sub_partition_id_mask = 0000000000000080
+GPGPU-Sim uArch: clock freqs: 1365000000.000000:1365000000.000000:1365000000.000000:3500000000.000000
+GPGPU-Sim uArch: clock periods: 0.00000000073260073260:0.00000000073260073260:0.00000000073260073260:0.00000000028571428571
+*** Initializing Memory Statistics ***
+GPGPU-Sim uArch: performance model initialization complete.
+gpgpusim: binding gpgpusim buffer 0xc0000000 (size 104) to vulkan buffer 0x5e138cd77000
+LVP: gpgpusim buffer size 104 allocated at 0xc0000000
+LVP: Finding mapped memory for mem 0x5e138cd764f0: mem->pmem 0x5e138cd77000 
+LVP: Identified at 0x5e138cd77000
+Vertex Buffer Device Address: 0x5e138cd77000
+SUCCESS: Vulkan-sim + Mesa device address works
+Ray Count : 1
+LVP: vkBuffer size 16 created at 0x7ffe7ae9d7f0
+LLVM: llvmpipe_resource_bind_backing: pipe_screen 0x5e138cd725b0; pipe_resource 0x5e1396eefec0; llvmpipe_resource 0x5e1396eefec0; pipe_memory_allocation 0x5e1396ef1000;
+LVP: Binding lvp_buffer 0x5e1396eefe40: buffer->bo: 0x5e1396eefec0; buffer->pmem: 0x5e1396ef1000; memory-offset: 0;
+gpgpusim: binding gpgpusim buffer 0xc0000100 (size 16) to vulkan buffer 0x5e1396ef1000
+LVP: gpgpusim buffer size 16 allocated at 0xc0000100
+LVP: Finding mapped memory for mem 0x5e1396ef00d0: mem->pmem 0x5e1396ef1000 
+LVP: Identified at 0x5e1396ef1000
+Ray Buffer Device Address: 0x5e138cd77000
+LVP: vkBuffer size 100 created at 0x7ffe7ae9d808
+LLVM: llvmpipe_resource_bind_backing: pipe_screen 0x5e138cd725b0; pipe_resource 0x5e1396ef01d0; llvmpipe_resource 0x5e1396ef01d0; pipe_memory_allocation 0x5e1396ef2000;
+LVP: Binding lvp_buffer 0x5e1396ef0150: buffer->bo: 0x5e1396ef01d0; buffer->pmem: 0x5e1396ef2000; memory-offset: 0;
+gpgpusim: binding gpgpusim buffer 0xc0000200 (size 100) to vulkan buffer 0x5e1396ef2000
+LVP: gpgpusim buffer size 100 allocated at 0xc0000200
+lvp_GetAccelerationStructureBuildSizesKHR
+LVP: Size of BVH structure is 0x1c0
+LVP: vkBuffer size 448 created at 0x7ffe7ae9d818
+LLVM: llvmpipe_resource_bind_backing: pipe_screen 0x5e138cd725b0; pipe_resource 0x5e1396ef06c0; llvmpipe_resource 0x5e1396ef06c0; pipe_memory_allocation 0x5e1396ef3000;
+LVP: Binding lvp_buffer 0x5e1396ef0640: buffer->bo: 0x5e1396ef06c0; buffer->pmem: 0x5e1396ef3000; memory-offset: 0;
+gpgpusim: binding gpgpusim buffer 0xc0000300 (size 448) to vulkan buffer 0x5e1396ef3000
+LVP: gpgpusim buffer size 448 allocated at 0xc0000300
+lvp_CreateAccelerationStructureKHR
+LVP: Accel structure (size 0x1c0) created from lvp_buffer (size 0x1c0). 
+LVP: Buffer 0x5e1396ef3000 + 0x0 = 0x5e1396ef3000 allocated to accel structure 0x5e138d019520
+gpgpusim: set BLAS address for 0x1c0 at 0x5e1396ef3000 to 0xc0000300
+LVP: vkBuffer size 160 created at 0x7ffe7ae9d830
+LLVM: llvmpipe_resource_bind_backing: pipe_screen 0x5e138cd725b0; pipe_resource 0x5e1396ef12e0; llvmpipe_resource 0x5e1396ef12e0; pipe_memory_allocation 0x5e1396ef4000;
+LVP: Binding lvp_buffer 0x5e1396ef1260: buffer->bo: 0x5e1396ef12e0; buffer->pmem: 0x5e1396ef4000; memory-offset: 0;
+gpgpusim: binding gpgpusim buffer 0xc0000500 (size 160) to vulkan buffer 0x5e1396ef4000
+LVP: gpgpusim buffer size 160 allocated at 0xc0000500
+LVP: Building acceleration structure
+gpgpusim: set geometry
+EMBREE: 2 triangles added; total: 2
+EMBREE: New rtcBVH structure created at 0x5e1396ef2530
+EMBREE: Building 6 wide tree (max depth 32) using quality 1
+EMBREE: Build BVH with root 0x5e1396ef2880
+Compressed Node: i	exp: (1, 1, 1)	origin: (0.500000, 1.000000, -0.500000)
+Children:
+	0x5e1396ef28e8: (0, 0, 0), (128, 64, 128)
+	0x5e1396ef28f4: (0, 128, 0), (128, 192, 128)
+	(nil): (0, 0, 0), (0, 0, 0)
+	(nil): (0, 0, 0), (0, 0, 0)
+	(nil): (0, 0, 0), (0, 0, 0)
+	(nil): (0, 0, 0), (0, 0, 0)
+EMBREE: Set dst_map 0x5e1396ef3000 = accel->address.bo 0x5e1396ef3000 + accel->address.offset 0x0 for accel 0x5e138d019520
+EMBREE: Pack bvh 0x7ffe7ae9d610 to dst_map 0x5e1396ef3000
+EMBREE: Pack root 0x5e1396ef2880 to root_map 0x5e1396ef3040
+EMBREE: Release rtcBVH structure created at 0x5e1396ef2530
+LVP: Command Buffer:
+lvp_GetAccelerationStructureDeviceAddressKHR
+LVP: Returning BLAS 0x5e138d019520 address 0x5e1396ef3000
+LVP: vkBuffer size 64 created at 0x7ffe7ae9d858
+LLVM: llvmpipe_resource_bind_backing: pipe_screen 0x5e138cd725b0; pipe_resource 0x5e1396ef21a0; llvmpipe_resource 0x5e1396ef21a0; pipe_memory_allocation 0x5e1396ef6000;
+LVP: Binding lvp_buffer 0x5e1396ef2070: buffer->bo: 0x5e1396ef21a0; buffer->pmem: 0x5e1396ef6000; memory-offset: 0;
+gpgpusim: binding gpgpusim buffer 0xc0000600 (size 64) to vulkan buffer 0x5e1396ef6000
+LVP: gpgpusim buffer size 64 allocated at 0xc0000600
+LVP: Finding mapped memory for mem 0x5e1396ef23b0: mem->pmem 0x5e1396ef6000 
+LVP: Identified at 0x5e1396ef6000
+lvp_GetAccelerationStructureBuildSizesKHR
+LVP: Size of BVH structure is 0x1c0
+LVP: vkBuffer size 448 created at 0x7ffe7ae9d870
+LLVM: llvmpipe_resource_bind_backing: pipe_screen 0x5e138cd725b0; pipe_resource 0x5e1396ef5ae0; llvmpipe_resource 0x5e1396ef5ae0; pipe_memory_allocation 0x5e1396ef7000;
+LVP: Binding lvp_buffer 0x5e1396ef3270: buffer->bo: 0x5e1396ef5ae0; buffer->pmem: 0x5e1396ef7000; memory-offset: 0;
+gpgpusim: binding gpgpusim buffer 0xc0000700 (size 448) to vulkan buffer 0x5e1396ef7000
+LVP: gpgpusim buffer size 448 allocated at 0xc0000700
+lvp_CreateAccelerationStructureKHR
+LVP: Accel structure (size 0x1c0) created from lvp_buffer (size 0x1c0). 
+LVP: Buffer 0x5e1396ef7000 + 0x0 = 0x5e1396ef7000 allocated to accel structure 0x5e138d0193d0
+gpgpusim: set TLAS address 0x5e1396ef7000 to 0xc0000700
+LVP: vkBuffer size 92 created at 0x7ffe7ae9d888
+LLVM: llvmpipe_resource_bind_backing: pipe_screen 0x5e138cd725b0; pipe_resource 0x5e1396ef3cc0; llvmpipe_resource 0x5e1396ef3cc0; pipe_memory_allocation 0x5e1396ef8000;
+LVP: Binding lvp_buffer 0x5e1396ef71d0: buffer->bo: 0x5e1396ef3cc0; buffer->pmem: 0x5e1396ef8000; memory-offset: 0;
+gpgpusim: binding gpgpusim buffer 0xc0000900 (size 92) to vulkan buffer 0x5e1396ef8000
+LVP: gpgpusim buffer size 92 allocated at 0xc0000900
+LVP: Building acceleration structure
+gpgpusim: set geometry
+EMBREE: Get accel instance -> device 0x7ffe7ae9d2d0
+EMBREE: Add AABB geometry: geomID: 0, primID 0, box (0.500, 1.000, -0.500), (1.500, 2.500, 0.500)
+EMBREE: New rtcBVH structure created at 0x5e1396ef2530
+EMBREE: Set dst_map 0x5e1396ef7000 = accel->address.bo 0x5e1396ef7000 + accel->address.offset 0x0 for accel 0x5e138d0193d0
+EMBREE: Pack bvh 0x7ffe7ae9d610 to dst_map 0x5e1396ef7000
+EMBREE: Get accel instance -> device 0x7ffe7ae9c100
+EMBREE: Pack root 0x7ffe7ae9d6b0 to root_map 0x5e1396ef7040
+gpgpusim: set AS
+EMBREE: Release rtcBVH structure created at 0x5e1396ef2530
+LVP: Command Buffer:
+*****************TLAS built successfully!***********
+LVP: vkBuffer size 8 created at 0x7ffe7ae9d8a0
+LLVM: llvmpipe_resource_bind_backing: pipe_screen 0x5e138cd725b0; pipe_resource 0x5e1396ef7dd0; llvmpipe_resource 0x5e1396ef7dd0; pipe_memory_allocation 0x5e1396ef9000;
+LVP: Binding lvp_buffer 0x5e1396ef7ca0: buffer->bo: 0x5e1396ef7dd0; buffer->pmem: 0x5e1396ef9000; memory-offset: 0;
+gpgpusim: binding gpgpusim buffer 0xc0000a00 (size 8) to vulkan buffer 0x5e1396ef9000
+LVP: gpgpusim buffer size 8 allocated at 0xc0000a00
+LVP: Finding mapped memory for mem 0x5e1396ef2c20: mem->pmem 0x5e1396ef9000 
+LVP: Identified at 0x5e1396ef9000
+LVP: vkBuffer size 12 created at 0x7ffe7ae9d8b8
+LLVM: llvmpipe_resource_bind_backing: pipe_screen 0x5e138cd725b0; pipe_resource 0x5e1396ef1aa0; llvmpipe_resource 0x5e1396ef1aa0; pipe_memory_allocation 0x5e1396efa000;
+LVP: Binding lvp_buffer 0x5e1396ef2820: buffer->bo: 0x5e1396ef1aa0; buffer->pmem: 0x5e1396efa000; memory-offset: 0;
+gpgpusim: binding gpgpusim buffer 0xc0000b00 (size 12) to vulkan buffer 0x5e1396efa000
+LVP: gpgpusim buffer size 12 allocated at 0xc0000b00
+LVP: Finding mapped memory for mem 0x5e1396ef1cb0: mem->pmem 0x5e1396efa000 
+LVP: Identified at 0x5e1396efa000
+LVP: Create descriptor set layout...
+LVP: Set Layout with 6 bindings...
+DESCRIPTOR TYPE SET: 1000150000
+LVP: Set Layout: type VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_KHR; stage flag 0x100
+DESCRIPTOR TYPE SET: 7
+LVP: Set Layout: type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER; stage flag 0x100
+DESCRIPTOR TYPE SET: 7
+LVP: Set Layout: type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER; stage flag 0x500
+DESCRIPTOR TYPE SET: 7
+LVP: Set Layout: type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER; stage flag 0x500
+DESCRIPTOR TYPE SET: 7
+LVP: Set Layout: type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER; stage flag 0x500
+DESCRIPTOR TYPE SET: 7
+LVP: Set Layout: type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER; stage flag 0x500
+LVP: Create pipeline layout...
+LVP: Create descriptor pool...
+LVP: Allocate descriptor sets...
+LVP: Creating descriptor sets with 6 bindings at 0x5e1396ef7ad0...
+LVP: Update descriptor sets...
+DESC AT: 0x5e1396ef7b28 with type 1000150000
+LVP: Setting lvp_acceleration_structure 0x5e138d0193d0 for descriptor 0 (0). info.ubo: address 0x5e1396ef7000 + offset 0 = 0x5e1396ef7000 
+DESC AT: 0x5e1396ef7b58 with type 7
+LVP: Setting lvp_buffer 0x5e1396eefe40 for descriptor 1 (0). info.ssbo: buffer 0x5e1396eefec0 + offset 0 = 0x5e1396eefec0; stored at 0x5e1396ef1000 using pointer 0xc0000100 with 16 bytes. 
+LVP: gpgpusim buffer at 0xc0000100
+DESC AT: 0x5e1396ef7b88 with type 7
+LVP: Setting lvp_buffer 0x5e1396ef0150 for descriptor 2 (0). info.ssbo: buffer 0x5e1396ef01d0 + offset 0 = 0x5e1396ef01d0; stored at 0x5e1396ef2000 using pointer 0xc0000200 with 100 bytes. 
+LVP: gpgpusim buffer at 0xc0000200
+DESC AT: 0x5e1396ef7bb8 with type 7
+LVP: Setting lvp_buffer 0x5e138cd76260 for descriptor 3 (0). info.ssbo: buffer 0x5e138cd762e0 + offset 0 = 0x5e138cd762e0; stored at 0x5e138cd77000 using pointer 0xc0000000 with 104 bytes. 
+LVP: gpgpusim buffer at 0xc0000000
+DESC AT: 0x5e1396ef7be8 with type 7
+LVP: Setting lvp_buffer 0x5e1396ef7ca0 for descriptor 4 (0). info.ssbo: buffer 0x5e1396ef7dd0 + offset 0 = 0x5e1396ef7dd0; stored at 0x5e1396ef9000 using pointer 0xc0000a00 with 8 bytes. 
+LVP: gpgpusim buffer at 0xc0000a00
+DESC AT: 0x5e1396ef7c18 with type 7
+LVP: Setting lvp_buffer 0x5e1396ef2820 for descriptor 5 (0). info.ssbo: buffer 0x5e1396ef1aa0 + offset 0 = 0x5e1396ef1aa0; stored at 0x5e1396efa000 using pointer 0xc0000b00 with 12 bytes. 
+LVP: gpgpusim buffer at 0xc0000b00
+*******************success build shaderModule********
+*******************success build shaderModule********
+*******************success build shaderModule********
+*******************success build shaderModule********
+Translating /home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx
+NIR-PTX Translator: Anyhit shader identified!
+Translating /home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_MISS_1.ptx
+Translating /home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_CLOSEST_HIT_3.ptx
+Translating /home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx
+LVP: Creating ray tracing pipeline...
+LVP: Compiling ray tracing pipeline...
+LVP: Compiling shader stage 0
+LVP: Translating shader 0 (type 8)
+GPGPU-SIM VULKAN: Translating NIR MESA_SHADER_RAYGEN to PTX
+LVP: Compiling shader stage 1
+LVP: Translating shader 1 (type 11)
+GPGPU-SIM VULKAN: Translating NIR MESA_SHADER_MISS to PTX
+LVP: Compiling shader stage 2
+LVP: Translating shader 2 (type 9)
+GPGPU-SIM VULKAN: Translating NIR MESA_SHADER_ANY_HIT to PTX
+LVP: Compiling shader stage 3
+LVP: Translating shader 3 (type 10)
+GPGPU-SIM VULKAN: Translating NIR MESA_SHADER_CLOSEST_HIT to PTX
+LVP: run_rt_translation_passes
+LVP: Registering shader stage 0 with GPGPU-Sim
+gpgpusim: register shaders
+gpgpusim: invoking gpgpusim
+GPGPU-Sim PTX: instruction assembly for function 'MESA_SHADER_RAYGEN_func0_main'...   done.
+GPGPU-Sim PTX: finished parsing EMBEDDED .ptx file /home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx
+GPGPUSIM: Generating PTXINFO for/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptxinfo
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function 'MESA_SHADER_RAYGEN_func0_main' for 'sm_52'
+ptxas info    : Function properties for MESA_SHADER_RAYGEN_func0_main
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 8 registers, 320 bytes cmem[0]
+Parsing ptxinfo from file: /home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptxinfo
+GPGPU-Sim PTX: Kernel 'MESA_SHADER_RAYGEN_func0_main' : regs=8, lmem=0, smem=0, cmem=320
+LVP: Registering shader stage 1 with GPGPU-Sim
+gpgpusim: register shaders
+gpgpusim: invoking gpgpusim
+GPGPU-Sim PTX: instruction assembly for function 'MESA_SHADER_MISS_func1_main'...   done.
+GPGPU-Sim PTX: finished parsing EMBEDDED .ptx file /home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_MISS_1.ptx
+GPGPUSIM: Generating PTXINFO for/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_MISS_1.ptxinfo
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function 'MESA_SHADER_MISS_func1_main' for 'sm_52'
+ptxas info    : Function properties for MESA_SHADER_MISS_func1_main
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 2 registers, 320 bytes cmem[0]
+Parsing ptxinfo from file: /home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_MISS_1.ptxinfo
+GPGPU-Sim PTX: Kernel 'MESA_SHADER_MISS_func1_main' : regs=2, lmem=0, smem=0, cmem=320
+LVP: Registering shader stage 2 with GPGPU-Sim
+gpgpusim: register shaders
+gpgpusim: invoking gpgpusim
+GPGPU-Sim PTX: instruction assembly for function 'MESA_SHADER_ANY_HIT_func2_main'...   done.
+GPGPU-Sim PTX: finished parsing EMBEDDED .ptx file /home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx
+GPGPUSIM: Generating PTXINFO for/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptxinfo
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function 'MESA_SHADER_ANY_HIT_func2_main' for 'sm_52'
+ptxas info    : Function properties for MESA_SHADER_ANY_HIT_func2_main
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 11 registers, 320 bytes cmem[0], 4 bytes cmem[2]
+Parsing ptxinfo from file: /home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptxinfo
+GPGPU-Sim PTX: Kernel 'MESA_SHADER_ANY_HIT_func2_main' : regs=11, lmem=0, smem=0, cmem=324
+LVP: Registering shader stage 3 with GPGPU-Sim
+gpgpusim: register shaders
+gpgpusim: invoking gpgpusim
+GPGPU-Sim PTX: instruction assembly for function 'MESA_SHADER_CLOSEST_HIT_func3_main'...   done.
+GPGPU-Sim PTX: finished parsing EMBEDDED .ptx file /home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_CLOSEST_HIT_3.ptx
+GPGPUSIM: Generating PTXINFO for/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_CLOSEST_HIT_3.ptxinfo
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function 'MESA_SHADER_CLOSEST_HIT_func3_main' for 'sm_52'
+ptxas info    : Function properties for MESA_SHADER_CLOSEST_HIT_func3_main
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 3 registers, 320 bytes cmem[0]
+Parsing ptxinfo from file: /home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_CLOSEST_HIT_3.ptxinfo
+GPGPU-Sim PTX: Kernel 'MESA_SHADER_CLOSEST_HIT_func3_main' : regs=3, lmem=0, smem=0, cmem=320
+LVP: Adding group handle for general group: 
+	general_index 0
+LVP: Adding group handle for general group: 
+	general_index 1
+LVP: Adding group handle for triangle hit group: 
+	any_hit_index 2
+LVP: Adding group handle for triangle hit group: 
+	closest_hit_index 3
+gpgpusim: set pipeline
+Ray Tracing Pipeline created successfully!
+LVP: Get ray tracing shader group handles...
+LVP: Copying handle 0 to 0x5e1397016880
+LVP: Copying handle 1 to 0x5e13970168a0
+LVP: Copying handle 2 to 0x5e13970168c0
+LVP: Copying handle 3 to 0x5e13970168e0
+LVP: vkBuffer size 352 created at 0x7ffe7ae9d8f8
+LLVM: llvmpipe_resource_bind_backing: pipe_screen 0x5e138cd725b0; pipe_resource 0x5e1397016910; llvmpipe_resource 0x5e1397016910; pipe_memory_allocation 0x5e1396fbe000;
+LVP: Binding lvp_buffer 0x5e1397059a40: buffer->bo: 0x5e1397016910; buffer->pmem: 0x5e1396fbe000; memory-offset: 0;
+gpgpusim: binding gpgpusim buffer 0xc0000c00 (size 352) to vulkan buffer 0x5e1396fbe000
+LVP: gpgpusim buffer size 352 allocated at 0xc0000c00
+LVP: Finding mapped memory for mem 0x5e1397056540: mem->pmem 0x5e1396fbe000 
+LVP: Identified at 0x5e1396fbe000
+*************success: SBT table binding with CloseHit*************
+LVP: Command Buffer:
+	VK_CMD_BIND_PIPELINE
+	VK_CMD_BIND_DESCRIPTOR_SETS
+	VK_CMD_TRACE_RAYS_KHR
+LVP: Bind pipeline...
+LVP: Bind ray tracing pipeline...
+LVP: Bind descriptor sets...
+LVP: Bind ray tracing descriptor sets...
+LVP: Binding... 
+Bind raygen... 
+LVP: Handling descriptor type VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_KHR...
+LVP: Handling descriptor type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER...
+LVP: Handling descriptor type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER...
+LVP: Handling descriptor type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER...
+LVP: Handling descriptor type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER...
+LVP: Handling descriptor type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER...
+Bind closest hit... 
+LVP: Handling descriptor type VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_KHR...
+LVP: Handling descriptor type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER...
+LVP: Handling descriptor type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER...
+LVP: Handling descriptor type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER...
+LVP: Handling descriptor type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER...
+LVP: Handling descriptor type VK_DESCRIPTOR_TYPE_STORAGE_BUFFER...
+
+LVP: Setting descriptor set pointer 0x96ef7ad0...
+gpgpusim: set descriptor set 0x96ef7ad0
+LVP: Handling trace ray...
+LVP: SBT: raygen 0x5e1396fbe000, miss 0x5e1396fbe050, hit 0x5e1396fbe0a0, callable (nil) 
+LVP: Launching vkCmdTraceRaysKHR on Vulkan-Sim; Mesa last updated August 29, 2023
+gpgpusim: invoking gpgpusim
+gpgpusim: launching cmd trace ray
+GPGPU-Sim PTX: finding reconvergence points for 'MESA_SHADER_RAYGEN_func0_main'...
+GPGPU-Sim PTX: Finding dominators for 'MESA_SHADER_RAYGEN_func0_main'...
+GPGPU-Sim PTX: Finding immediate dominators for 'MESA_SHADER_RAYGEN_func0_main'...
+Printing basic blocks for function 'MESA_SHADER_RAYGEN_func0_main':
+bb_00	:  PC=0x000 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:15) load_ray_launch_id %launch_ID_0, %launch_ID_1, %launch_ID_2;
+bb_00	:  PC=0x008 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:20) load_ray_launch_size %launch_Size_0, %launch_Size_1, %launch_Size_2;
+bb_00	:  PC=0x010 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:24) setp.ge.u32 %bigger_0, %launch_ID_0, %launch_Size_0;
+bb_00	:  PC=0x018 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:27) setp.ge.u32 %bigger_1, %launch_ID_1, %launch_Size_1;
+bb_00	:  PC=0x020 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:30) setp.ge.u32 %bigger_2, %launch_ID_2, %launch_Size_2;
+bb_00	:  PC=0x028 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:32) @%bigger_0 bra shader_exit;
+
+bb_01	:  PC=0x030 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:33) @%bigger_1 bra shader_exit;
+
+bb_02	:  PC=0x038 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:34) @%bigger_2 bra shader_exit;
+
+bb_03	:  PC=0x040 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:37) rt_alloc_mem %payload, 36, 8192; // decl_var function_temp INTERP_MODE_NONE vec3 payload
+bb_03	:  PC=0x048 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:45) mov.f32 %const1_f32, 0F3f800000;
+bb_03	:  PC=0x050 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:48) mov.f32 %const0_f32, 0F00000000;
+bb_03	:  PC=0x058 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:51) mov.u32 %const0_u32, 0;
+bb_03	:  PC=0x060 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:54) mov.u16 %const1_u16, 1;
+bb_03	:  PC=0x068 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:59) mov.f32 %ssa_0, 0F5a0e1bca; // vec1 32 ssa_0 = load_const (0x5a0e1bca /* 10000000272564224.000000 */)
+bb_03	:  PC=0x070 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:61) mov.b32 %ssa_0_bits, 0F5a0e1bca;
+bb_03	:  PC=0x078 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:64) mov.f32 %ssa_1, 0F00000000; // vec1 32 ssa_1 = load_const (0x00000000 /* 0.000000 */)
+bb_03	:  PC=0x080 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:66) mov.b32 %ssa_1_bits, 0F00000000;
+bb_03	:  PC=0x088 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:69) mov.f32 %ssa_2, 0F000000ff; // vec1 32 ssa_2 = load_const (0x000000ff /* 0.000000 */)
+bb_03	:  PC=0x090 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:71) mov.b32 %ssa_2_bits, 0F000000ff;
+bb_03	:  PC=0x098 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:77) load_ray_launch_id %ssa_3_0, %ssa_3_1, %ssa_3_2; // vec3 32 ssa_3 = intrinsic load_ray_launch_id () ()
+bb_03	:  PC=0x0a0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:80) load_vulkan_descriptor %ssa_4, 0, 5, 7; // vec2 32 ssa_4 = intrinsic vulkan_resource_index (%ssa_1) (0, 5, 7) /* desc_set=0 */ /* binding=5 */ /* desc_type=SSBO */
+bb_03	:  PC=0x0a8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:83) mov.b64 %ssa_5, %ssa_4; // vec2 32 ssa_5 = intrinsic load_vulkan_descriptor (%ssa_4) (7) /* desc_type=SSBO */
+bb_03	:  PC=0x0b0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:86) mov.b64 %ssa_6, %ssa_5; // vec2 32 ssa_6 = deref_cast (ShaderNeedInfoBuffer *)ssa_5 (ssbo ShaderNeedInfoBuffer)  /* ptr_stride=0, align_mul=0, align_offset=0 */
+bb_03	:  PC=0x0b8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:89) add.u64 %ssa_7, %ssa_6, 0; // vec2 32 ssa_7 = deref_struct &ssa_6->info (ssbo ShaderNeedInfo) /* &((ShaderNeedInfoBuffer *)ssa_5)->info */
+bb_03	:  PC=0x0c0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:92) add.u64 %ssa_8, %ssa_7, 8; // vec2 32 ssa_8 = deref_struct &ssa_7->RayCount (ssbo int) /* &((ShaderNeedInfoBuffer *)ssa_5)->info.RayCount */
+bb_03	:  PC=0x0c8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:95) ld.global.s32 %ssa_9, [%ssa_8]; // vec1 32 ssa_9 = intrinsic load_deref (%ssa_8) (0) /* access=0 */
+bb_03	:  PC=0x0d0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:98) setp.ge.u32 %ssa_10, %ssa_3_0, %ssa_9; // vec1  1 ssa_10 = uge ssa_3.x, ssa_9
+bb_03	:  PC=0x0d8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:101) setp.ne.s32 %ssa_11, %ssa_3_1, %ssa_1_bits; // vec1  1 ssa_11 = ine ssa_3.y, ssa_1
+bb_03	:  PC=0x0e0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:104) or.pred %ssa_12, %ssa_10, %ssa_11;// vec1  1 ssa_12 = ior ssa_10, ssa_11
+bb_03	:  PC=0x0e8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:109) @!%ssa_12 bra else_0;
+
+bb_04	:  PC=0x0f0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:115) bra end_if_0;
+
+bb_05	:                 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:120) .reg .u32 %ssa_13;
+bb_05	:  PC=0x0f8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:121) mov.u32 %ssa_13, %ssa_3_0; // vec1 32 ssa_13 = mov ssa_3.x
+bb_05	:  PC=0x100 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:124) load_vulkan_descriptor %ssa_14, 0, 1, 7; // vec2 32 ssa_14 = intrinsic vulkan_resource_index (%ssa_1) (0, 1, 7) /* desc_set=0 */ /* binding=1 */ /* desc_type=SSBO */
+bb_05	:  PC=0x108 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:127) mov.b64 %ssa_15, %ssa_14; // vec2 32 ssa_15 = intrinsic load_vulkan_descriptor (%ssa_14) (7) /* desc_type=SSBO */
+bb_05	:  PC=0x110 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:130) mov.b64 %ssa_16, %ssa_15; // vec2 32 ssa_16 = deref_cast (RaysBuffer *)ssa_15 (ssbo RaysBuffer)  /* ptr_stride=0, align_mul=0, align_offset=0 */
+bb_05	:  PC=0x118 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:133) add.u64 %ssa_17, %ssa_16, 0; // vec2 32 ssa_17 = deref_struct &ssa_16->rays (ssbo vec4[]) /* &((RaysBuffer *)ssa_15)->rays */
+bb_05	:  PC=0x120 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:138) mov.u32 %ssa_18_array_index_32, %ssa_13;
+bb_05	:  PC=0x128 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:139) mul.wide.u32 %ssa_18_array_index_64, %ssa_18_array_index_32, 16;
+bb_05	:  PC=0x130 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:140) add.u64 %ssa_18, %ssa_17, %ssa_18_array_index_64; // vec2 32 ssa_18 = deref_array &(*ssa_17)[ssa_13] (ssbo vec4) /* &((RaysBuffer *)ssa_15)->rays[ssa_13] */
+bb_05	:  PC=0x138 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:143) mov.f32 %ssa_19, 0F00000001; // vec1 32 ssa_19 = load_const (0x00000001 /* 0.000000 */)
+bb_05	:  PC=0x140 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:145) mov.b32 %ssa_19_bits, 0F00000001;
+bb_05	:  PC=0x148 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:148) add.u64 %ssa_20, %ssa_18, 4; // vec2 32 ssa_20 = deref_array &(*ssa_18)[1] (ssbo float) /* &((RaysBuffer *)ssa_15)->rays[ssa_13][1] */
+bb_05	:  PC=0x150 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:154) ld.global.f32 %ssa_21_0, [%ssa_18 + 0];
+bb_05	:  PC=0x158 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:155) ld.global.f32 %ssa_21_1, [%ssa_18 + 4];
+bb_05	:  PC=0x160 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:156) ld.global.f32 %ssa_21_2, [%ssa_18 + 8];
+bb_05	:  PC=0x168 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:157) ld.global.f32 %ssa_21_3, [%ssa_18 + 12];
+bb_05	:  PC=0x170 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:162) mov.f32 %ssa_29, %ssa_21_1; // vec1 32 ssa_29 = mov ssa_21.y
+bb_05	:  PC=0x178 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:168) ld.global.f32 %ssa_22_0, [%ssa_18 + 0];
+bb_05	:  PC=0x180 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:169) ld.global.f32 %ssa_22_1, [%ssa_18 + 4];
+bb_05	:  PC=0x188 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:170) ld.global.f32 %ssa_22_2, [%ssa_18 + 8];
+bb_05	:  PC=0x190 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:171) ld.global.f32 %ssa_22_3, [%ssa_18 + 12];
+bb_05	:  PC=0x198 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:179) mov.f32 %ssa_23_0, %ssa_22_0;
+bb_05	:  PC=0x1a0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:180) mov.f32 %ssa_23_1, %ssa_29;
+bb_05	:  PC=0x1a8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:181) mov.f32 %ssa_23_2, %ssa_22_2; // vec3 32 ssa_23 = vec3 ssa_22.x, ssa_29, ssa_22.z
+bb_05	:  PC=0x1b0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:184) mov.b64 %ssa_24, %payload; // vec1 32 ssa_24 = deref_var &payload (function_temp vec3) 
+bb_05	:  PC=0x1b8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:186) st.global.f32 [%ssa_24 + 0], %ssa_23_0;
+bb_05	:  PC=0x1c0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:187) st.global.f32 [%ssa_24 + 4], %ssa_23_1;
+bb_05	:  PC=0x1c8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:188) st.global.f32 [%ssa_24 + 8], %ssa_23_2;
+bb_05	:  PC=0x1d0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:193) load_vulkan_descriptor %ssa_25, 0, 0, 1000150000; // vec1 64 ssa_25 = intrinsic vulkan_resource_index (%ssa_1) (0, 0, 1000150000) /* desc_set=0 */ /* binding=0 */ /* desc_type=accel-struct */
+bb_05	:  PC=0x1d8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:196) mov.b64 %ssa_26, %ssa_25; // vec1 64 ssa_26 = intrinsic load_vulkan_descriptor (%ssa_25) (1000150000) /* desc_type=accel-struct */
+bb_05	:  PC=0x1e0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:202) mov.f32 %ssa_27_0, %ssa_29;
+bb_05	:  PC=0x1e8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:203) mov.f32 %ssa_27_1, %ssa_1;
+bb_05	:  PC=0x1f0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:204) mov.f32 %ssa_27_2, %ssa_1; // vec3 32 ssa_27 = vec3 ssa_29, ssa_1, ssa_1
+bb_05	:  PC=0x1f8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:210) mov.f32 %ssa_28_0, %ssa_29;
+bb_05	:  PC=0x200 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:211) mov.f32 %ssa_28_1, %ssa_0;
+bb_05	:  PC=0x208 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:212) mov.f32 %ssa_28_2, %ssa_1; // vec3 32 ssa_28 = vec3 ssa_29, ssa_0, ssa_1
+bb_05	:  PC=0x210 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:215) trace_ray %ssa_26, %ssa_1, %ssa_2, %ssa_1, %ssa_1, %ssa_1, %ssa_27_0, %ssa_27_1, %ssa_27_2, %ssa_1, %ssa_28_0, %ssa_28_1, %ssa_28_2, %ssa_0, %traversal_finished_0; // intrinsic trace_ray (%ssa_26, %ssa_1, %ssa_2, %ssa_1, %ssa_1, %ssa_1, %ssa_27, %ssa_1, %ssa_28, %ssa_0, %ssa_24) ()
+bb_05	:  PC=0x218 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:219) mov.u32 anyhit_counter_0, 0;
+
+bb_06	:                 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:221) .reg .pred %anyhit_exit_0;
+bb_06	:  PC=0x220 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:222) anyhit_exit.pred %anyhit_exit_0, anyhit_counter_0, %traversal_finished_0;
+bb_06	:  PC=0x228 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:223) @%anyhit_exit_0 bra exit_anyhit_label_0;
+
+bb_07	:  PC=0x230 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:225) get_anyhit_shader_data_address %shader_data_address_any_0, anyhit_counter_0;
+bb_07	:  PC=0x238 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:227) get_anyhit_shaderID %anyhit_shaderID_0, anyhit_counter_0;
+bb_07	:  PC=0x240 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:229) setp.ne.u32 %skip_anyhit_2_0, %anyhit_shaderID_0, 2;
+bb_07	:  PC=0x248 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:230) @%skip_anyhit_2_0 bra skip_anyhit_label_2_0;
+
+bb_08	:  PC=0x250 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:231) call_anyhit_shader anyhit_counter_0;
+
+bb_09	:                 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:233) add.u32 anyhit_counter_0, anyhit_counter_0, 1;
+bb_09	:  PC=0x258 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:233) add.u32 anyhit_counter_0, anyhit_counter_0, 1;
+bb_09	:  PC=0x260 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:234) bra anyhit_loop_0;
+
+bb_10	:                 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:237) .reg .pred %hit_geometry_0;
+bb_10	:  PC=0x268 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:238) hit_geometry.pred %hit_geometry_0, %traversal_finished_0;
+bb_10	:  PC=0x270 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:240) @!%hit_geometry_0 bra exit_closest_hit_label_0;
+
+bb_11	:  PC=0x278 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:242) get_closest_hit_shaderID %closest_hit_shaderID_0;
+bb_11	:  PC=0x280 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:244) setp.ne.u32 %skip_closest_hit_3_0, %closest_hit_shaderID_0, 3;
+bb_11	:  PC=0x288 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:245) @%skip_closest_hit_3_0 bra skip_closest_hit_label_3_0;
+
+bb_12	:  PC=0x290 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:246) call_closest_hit_shader 3;
+
+bb_13	:                 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:248) exit_closest_hit_label_0:
+bb_13	:                 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:250) @%hit_geometry_0 bra skip_miss_label_0;
+bb_13	:  PC=0x298 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:250) @%hit_geometry_0 bra skip_miss_label_0;
+
+bb_14	:  PC=0x2a0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:251) call_miss_shader ;
+
+bb_15	:                 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:254) end_trace_ray ;
+bb_15	:  PC=0x2a8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:254) end_trace_ray ;
+
+bb_16	:                 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:264) shader_exit:
+bb_16	:                 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:265) ret ;
+bb_16	:  PC=0x2b0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:265) ret ;
+
+Summary of basic blocks for 'MESA_SHADER_RAYGEN_func0_main':
+bb_00	: first: load_ray_launch_id	 last: bra	
+bb_01	: first: bra	 last: bra	
+bb_02	: first: bra	 last: bra	
+bb_03	: first: rt_alloc_mem	 last: bra	
+bb_04	: first: bra	 last: bra	
+bb_05	: first: mov	 last: mov	
+bb_06	: first: anyhit_exit	 last: bra	
+bb_07	: first: get_anyhit_shader_data_address	 last: bra	
+bb_08	: first: call_anyhit_shader	 last: call_anyhit_shader	
+bb_09	: first: add	 last: bra	
+bb_10	: first: hit_geometry	 last: bra	
+bb_11	: first: get_closest_hit_shaderID	 last: bra	
+bb_12	: first: call_closest_hit_shader	 last: call_closest_hit_shader	
+bb_13	: first: bra	 last: bra	
+bb_14	: first: call_miss_shader	 last: call_miss_shader	
+bb_15	: first: end_trace_ray	 last: end_trace_ray	
+bb_16	: first: ret	 last: ret	
+bb_17	: first: NULL	 last: NULL	
+
+GPGPU-Sim PTX: Finding postdominators for 'MESA_SHADER_RAYGEN_func0_main'...
+GPGPU-Sim PTX: Finding immediate postdominators for 'MESA_SHADER_RAYGEN_func0_main'...
+GPGPU-Sim PTX: pre-decoding instructions for 'MESA_SHADER_RAYGEN_func0_main'...
+GPGPU-Sim PTX: reconvergence points for MESA_SHADER_RAYGEN_func0_main...
+GPGPU-Sim PTX:  1 (potential) branch divergence @  PC=0x028 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:32) @%bigger_0 bra shader_exit;
+GPGPU-Sim PTX:    immediate post dominator      @  PC=0x2b0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:265) ret ;
+GPGPU-Sim PTX:  2 (potential) branch divergence @  PC=0x030 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:33) @%bigger_1 bra shader_exit;
+GPGPU-Sim PTX:    immediate post dominator      @  PC=0x2b0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:265) ret ;
+GPGPU-Sim PTX:  3 (potential) branch divergence @  PC=0x038 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:34) @%bigger_2 bra shader_exit;
+GPGPU-Sim PTX:    immediate post dominator      @  PC=0x2b0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:265) ret ;
+GPGPU-Sim PTX:  4 (potential) branch divergence @  PC=0x0e8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:109) @!%ssa_12 bra else_0;
+GPGPU-Sim PTX:    immediate post dominator      @  PC=0x2b0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:265) ret ;
+GPGPU-Sim PTX:  5 (potential) branch divergence @  PC=0x0f0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:115) bra end_if_0;
+GPGPU-Sim PTX:    immediate post dominator      @  PC=0x2b0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:265) ret ;
+GPGPU-Sim PTX:  6 (potential) branch divergence @  PC=0x228 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:223) @%anyhit_exit_0 bra exit_anyhit_label_0;
+GPGPU-Sim PTX:    immediate post dominator      @  PC=0x268 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:238) hit_geometry.pred %hit_geometry_0, %traversal_finished_0;
+GPGPU-Sim PTX:  7 (potential) branch divergence @  PC=0x248 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:230) @%skip_anyhit_2_0 bra skip_anyhit_label_2_0;
+GPGPU-Sim PTX:    immediate post dominator      @  PC=0x258 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:233) add.u32 anyhit_counter_0, anyhit_counter_0, 1;
+GPGPU-Sim PTX:  8 (potential) branch divergence @  PC=0x260 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:234) bra anyhit_loop_0;
+GPGPU-Sim PTX:    immediate post dominator      @  PC=0x220 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:222) anyhit_exit.pred %anyhit_exit_0, anyhit_counter_0, %traversal_finished_0;
+GPGPU-Sim PTX:  9 (potential) branch divergence @  PC=0x270 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:240) @!%hit_geometry_0 bra exit_closest_hit_label_0;
+GPGPU-Sim PTX:    immediate post dominator      @  PC=0x298 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:250) @%hit_geometry_0 bra skip_miss_label_0;
+GPGPU-Sim PTX: 10 (potential) branch divergence @  PC=0x288 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:245) @%skip_closest_hit_3_0 bra skip_closest_hit_label_3_0;
+GPGPU-Sim PTX:    immediate post dominator      @  PC=0x298 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:250) @%hit_geometry_0 bra skip_miss_label_0;
+GPGPU-Sim PTX: 11 (potential) branch divergence @  PC=0x298 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:250) @%hit_geometry_0 bra skip_miss_label_0;
+GPGPU-Sim PTX:    immediate post dominator      @  PC=0x2a8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:254) end_trace_ray ;
+GPGPU-Sim PTX: ... end of reconvergence points for MESA_SHADER_RAYGEN_func0_main
+Operand information not set. load_vulkan_descriptor %ssa_4, 0, 5, 7; // vec2 32 ssa_4 = intrinsic vulkan_resource_index (%ssa_1) (0, 5, 7) /* desc_set=0 */ /* binding=5 */ /* desc_type=SSBO */
+Operand information not set. load_vulkan_descriptor %ssa_14, 0, 1, 7; // vec2 32 ssa_14 = intrinsic vulkan_resource_index (%ssa_1) (0, 1, 7) /* desc_set=0 */ /* binding=1 */ /* desc_type=SSBO */
+Operand information not set. load_vulkan_descriptor %ssa_25, 0, 0, 1000150000; // vec1 64 ssa_25 = intrinsic vulkan_resource_index (%ssa_1) (0, 0, 1000150000) /* desc_set=0 */ /* binding=0 */ /* desc_type=accel-struct */
+trace_ray instruction found at PC 528 (line 215, shader 0)!
+Operand information not set. get_anyhit_shader_data_address %shader_data_address_any_0, anyhit_counter_0;
+Operand information not set. get_anyhit_shaderID %anyhit_shaderID_0, anyhit_counter_0;
+Operand information not set. call_anyhit_shader anyhit_counter_0;
+Operand information not set. get_closest_hit_shaderID %closest_hit_shaderID_0;
+Operand information not set. call_closest_hit_shader 3;
+Operand information not set. call_miss_shader ;
+Operand information not set. end_trace_ray ;
+GPGPU-Sim PTX: ... done pre-decoding instructions for 'MESA_SHADER_RAYGEN_func0_main'.
+gpgpusim: launch dimensions 1 x 5 x 1
+gpgpusim: SBT: raygen 0x5e1396fbe000, miss 0x5e1396fbe050, hit 0x5e1396fbe0a0, callable (nil)
+gpgpusim: blas address
+	[0x5e1396ef3000] -> 0xc0000300
+gpgpusim: tlas address 0xc0000700
+Streaming cache with 8192 mshr
+GPGPU-Sim uArch: Shader 0 bind to kernel 1 'MESA_SHADER_RAYGEN_func0_main'
+GPGPU-Sim uArch: CTA/core = 32, limited by: threads cta_limit
+GPGPU-Sim uArch: Shader 1 bind to kernel 1 'MESA_SHADER_RAYGEN_func0_main'
+GPGPU-Sim uArch: Shader 2 bind to kernel 1 'MESA_SHADER_RAYGEN_func0_main'
+GPGPU-Sim uArch: Shader 3 bind to kernel 1 'MESA_SHADER_RAYGEN_func0_main'
+GPGPU-Sim uArch: Shader 4 bind to kernel 1 'MESA_SHADER_RAYGEN_func0_main'
+GPGPU-Sim PTX: WARNING (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_RAYGEN_0.ptx:45) ** reading undefined register '%const1_f32' (cuid:0). Setting to 0X00000000. This is okay if you are simulating the native ISA
+GPGPU-Sim PTX: finding reconvergence points for 'MESA_SHADER_ANY_HIT_func2_main'...
+GPGPU-Sim PTX: Finding dominators for 'MESA_SHADER_ANY_HIT_func2_main'...
+GPGPU-Sim PTX: Finding immediate dominators for 'MESA_SHADER_ANY_HIT_func2_main'...
+Printing basic blocks for function 'MESA_SHADER_ANY_HIT_func2_main':
+bb_00	:  PC=0x2e0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:13) rt_alloc_mem %payload, 36, 32; // decl_var shader_call_data INTERP_MODE_NONE vec3 payload
+bb_00	:  PC=0x2e8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:21) mov.f32 %const1_f32, 0F3f800000;
+bb_00	:  PC=0x2f0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:24) mov.f32 %const0_f32, 0F00000000;
+bb_00	:  PC=0x2f8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:27) mov.u32 %const0_u32, 0;
+bb_00	:  PC=0x300 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:30) mov.u16 %const1_u16, 1;
+bb_00	:  PC=0x308 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:35) mov.f32 %ssa_0, 0F00000001; // vec1 32 ssa_0 = load_const (0x00000001 /* 0.000000 */)
+bb_00	:  PC=0x310 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:37) mov.b32 %ssa_0_bits, 0F00000001;
+bb_00	:  PC=0x318 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:40) mov.f32 %ssa_1, 0F00000009; // vec1 32 ssa_1 = load_const (0x00000009 /* 0.000000 */)
+bb_00	:  PC=0x320 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:42) mov.b32 %ssa_1_bits, 0F00000009;
+bb_00	:  PC=0x328 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:45) load_primitive_id %ssa_2;// vec1 32 ssa_2 = intrinsic load_primitive_id () ()
+bb_00	:  PC=0x330 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:48) mov.b64 %ssa_3, %payload; // vec1 32 ssa_3 = deref_var &payload (shader_call_data vec3) 
+bb_00	:  PC=0x338 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:54) ld.global.f32 %ssa_4_0, [%ssa_3 + 0];
+bb_00	:  PC=0x340 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:55) ld.global.f32 %ssa_4_1, [%ssa_3 + 4];
+bb_00	:  PC=0x348 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:56) ld.global.f32 %ssa_4_2, [%ssa_3 + 8];
+bb_00	:  PC=0x350 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:61) mov.f32 %ssa_5, 0F00000000; // vec1 32 ssa_5 = load_const (0x00000000 /* 0.000000 */)
+bb_00	:  PC=0x358 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:63) mov.b32 %ssa_5_bits, 0F00000000;
+bb_00	:  PC=0x360 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:66) load_vulkan_descriptor %ssa_6, 0, 4, 7; // vec2 32 ssa_6 = intrinsic vulkan_resource_index (%ssa_5) (0, 4, 7) /* desc_set=0 */ /* binding=4 */ /* desc_type=SSBO */
+bb_00	:  PC=0x368 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:69) mov.b64 %ssa_7, %ssa_6; // vec2 32 ssa_7 = intrinsic load_vulkan_descriptor (%ssa_6) (7) /* desc_type=SSBO */
+bb_00	:  PC=0x370 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:72) mov.b64 %ssa_8, %ssa_7; // vec2 32 ssa_8 = deref_cast (ValueBuffer *)ssa_7 (ssbo ValueBuffer)  /* ptr_stride=0, align_mul=0, align_offset=0 */
+bb_00	:  PC=0x378 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:75) add.u64 %ssa_9, %ssa_8, 0; // vec2 32 ssa_9 = deref_struct &ssa_8->value (ssbo float[]) /* &((ValueBuffer *)ssa_7)->value */
+bb_00	:  PC=0x380 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:80) mov.u32 %ssa_10_array_index_32, %ssa_2;
+bb_00	:  PC=0x388 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:81) mul.wide.u32 %ssa_10_array_index_64, %ssa_10_array_index_32, 4;
+bb_00	:  PC=0x390 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:82) add.u64 %ssa_10, %ssa_9, %ssa_10_array_index_64; // vec2 32 ssa_10 = deref_array &(*ssa_9)[ssa_2] (ssbo float) /* &((ValueBuffer *)ssa_7)->value[ssa_2] */
+bb_00	:  PC=0x398 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:85) ld.global.f32 %ssa_11, [%ssa_10]; // vec1 32 ssa_11 = intrinsic load_deref (%ssa_10) (0) /* access=0 */
+bb_00	:  PC=0x3a0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:88) mul.lo.s32 %ssa_12, %ssa_2, %ssa_1_bits; // vec1 32 ssa_12 = imul ssa_2, ssa_1
+bb_00	:  PC=0x3a8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:91) add.s32 %ssa_13, %ssa_12, %ssa_0_bits; // vec1 32 ssa_13 = iadd ssa_12, ssa_0
+bb_00	:  PC=0x3b0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:94) load_vulkan_descriptor %ssa_14, 0, 3, 7; // vec2 32 ssa_14 = intrinsic vulkan_resource_index (%ssa_5) (0, 3, 7) /* desc_set=0 */ /* binding=3 */ /* desc_type=SSBO */
+bb_00	:  PC=0x3b8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:97) mov.b64 %ssa_15, %ssa_14; // vec2 32 ssa_15 = intrinsic load_vulkan_descriptor (%ssa_14) (7) /* desc_type=SSBO */
+bb_00	:  PC=0x3c0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:100) mov.b64 %ssa_16, %ssa_15; // vec2 32 ssa_16 = deref_cast (vertexBuffer *)ssa_15 (ssbo vertexBuffer)  /* ptr_stride=0, align_mul=0, align_offset=0 */
+bb_00	:  PC=0x3c8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:103) add.u64 %ssa_17, %ssa_16, 0; // vec2 32 ssa_17 = deref_struct &ssa_16->vertex (ssbo float[]) /* &((vertexBuffer *)ssa_15)->vertex */
+bb_00	:  PC=0x3d0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:108) cvt.u32.s32 %ssa_18_array_index_32, %ssa_13;
+bb_00	:  PC=0x3d8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:109) mul.wide.u32 %ssa_18_array_index_64, %ssa_18_array_index_32, 4;
+bb_00	:  PC=0x3e0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:110) add.u64 %ssa_18, %ssa_17, %ssa_18_array_index_64; // vec2 32 ssa_18 = deref_array &(*ssa_17)[ssa_13] (ssbo float) /* &((vertexBuffer *)ssa_15)->vertex[ssa_13] */
+bb_00	:  PC=0x3e8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:113) ld.global.f32 %ssa_19, [%ssa_18]; // vec1 32 ssa_19 = intrinsic load_deref (%ssa_18) (0) /* access=0 */
+bb_00	:  PC=0x3f0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:116) cvt.rni.u32.f32 %ssa_20, %ssa_19;// vec1 32 ssa_20 = f2u32 ssa_19
+bb_00	:  PC=0x3f8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:119) cvt.rni.u32.f32 %ssa_21, %ssa_4_0; // vec1 32 ssa_21 = f2u32 ssa_4.x
+bb_00	:  PC=0x400 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:122) load_vulkan_descriptor %ssa_22, 0, 5, 7; // vec2 32 ssa_22 = intrinsic vulkan_resource_index (%ssa_5) (0, 5, 7) /* desc_set=0 */ /* binding=5 */ /* desc_type=SSBO */
+bb_00	:  PC=0x408 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:125) mov.b64 %ssa_23, %ssa_22; // vec2 32 ssa_23 = intrinsic load_vulkan_descriptor (%ssa_22) (7) /* desc_type=SSBO */
+bb_00	:  PC=0x410 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:128) mov.b64 %ssa_24, %ssa_23; // vec2 32 ssa_24 = deref_cast (ShaderNeedInfoBuffer *)ssa_23 (ssbo ShaderNeedInfoBuffer)  /* ptr_stride=0, align_mul=0, align_offset=0 */
+bb_00	:  PC=0x418 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:131) add.u64 %ssa_25, %ssa_24, 0; // vec2 32 ssa_25 = deref_struct &ssa_24->info (ssbo ShaderNeedInfo) /* &((ShaderNeedInfoBuffer *)ssa_23)->info */
+bb_00	:  PC=0x420 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:134) add.u64 %ssa_26, %ssa_25, 4; // vec2 32 ssa_26 = deref_struct &ssa_25->ResultCol (ssbo int) /* &((ShaderNeedInfoBuffer *)ssa_23)->info.ResultCol */
+bb_00	:  PC=0x428 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:137) ld.global.s32 %ssa_27, [%ssa_26]; // vec1 32 ssa_27 = intrinsic load_deref (%ssa_26) (0) /* access=0 */
+bb_00	:  PC=0x430 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:140) mov.f32 %ssa_28, 0Fffffffff; // vec1 32 ssa_28 = load_const (0xffffffff /* -nan */)
+bb_00	:  PC=0x438 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:142) mov.b32 %ssa_28_bits, 0Fffffffff;
+bb_00	:  PC=0x440 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:145) add.s32 %ssa_29, %ssa_21, %ssa_28_bits; // vec1 32 ssa_29 = iadd ssa_21, ssa_28
+bb_00	:  PC=0x448 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:148) mul.lo.s32 %ssa_30, %ssa_29, %ssa_27;// vec1 32 ssa_30 = imul ssa_29, ssa_27
+bb_00	:  PC=0x450 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:151) add.s32 %ssa_31, %ssa_30, %ssa_28_bits; // vec1 32 ssa_31 = iadd ssa_30, ssa_28
+bb_00	:  PC=0x458 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:154) add.s32 %ssa_32, %ssa_31, %ssa_20;// vec1 32 ssa_32 = iadd ssa_31, ssa_20
+bb_00	:  PC=0x460 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:157) mul.f32 %ssa_33, %ssa_4_2, %ssa_11; // vec1 32 ssa_33 = fmul ssa_4.z, ssa_11
+bb_00	:  PC=0x468 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:160) load_vulkan_descriptor %ssa_34, 0, 2, 7; // vec2 32 ssa_34 = intrinsic vulkan_resource_index (%ssa_5) (0, 2, 7) /* desc_set=0 */ /* binding=2 */ /* desc_type=SSBO */
+bb_00	:  PC=0x470 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:163) mov.b64 %ssa_35, %ssa_34; // vec2 32 ssa_35 = intrinsic load_vulkan_descriptor (%ssa_34) (7) /* desc_type=SSBO */
+bb_00	:  PC=0x478 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:166) mov.b64 %ssa_36, %ssa_35; // vec2 32 ssa_36 = deref_cast (ResultBuffer *)ssa_35 (ssbo ResultBuffer)  /* ptr_stride=0, align_mul=0, align_offset=0 */
+bb_00	:  PC=0x480 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:169) add.u64 %ssa_37, %ssa_36, 0; // vec2 32 ssa_37 = deref_struct &ssa_36->result (ssbo float[]) /* &((ResultBuffer *)ssa_35)->result */
+bb_00	:  PC=0x488 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:174) cvt.u32.s32 %ssa_38_array_index_32, %ssa_32;
+bb_00	:  PC=0x490 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:175) mul.wide.u32 %ssa_38_array_index_64, %ssa_38_array_index_32, 4;
+bb_00	:  PC=0x498 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:176) add.u64 %ssa_38, %ssa_37, %ssa_38_array_index_64; // vec2 32 ssa_38 = deref_array &(*ssa_37)[ssa_32] (ssbo float) /* &((ResultBuffer *)ssa_35)->result[ssa_32] */
+bb_00	:  PC=0x4a0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:179) ld.global.f32 %ssa_39, [%ssa_38]; // vec1 32 ssa_39 = intrinsic load_deref (%ssa_38) (0) /* access=0 */
+bb_00	:  PC=0x4a8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:182) add.f32 %ssa_40, %ssa_39, %ssa_33;// vec1 32 ssa_40 = fadd ssa_39, ssa_33
+bb_00	:  PC=0x4b0 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:184) st.global.f32 [%ssa_38], %ssa_40; // intrinsic store_deref (%ssa_38, %ssa_40) (1, 0) /* wrmask=x */ /* access=0 */
+
+bb_01	:                 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:190) ret ;
+bb_01	:  PC=0x4b8 (/home/zjw/vulkan-sim-root/vulkan-sim/../mesa-vulkan-sim/gpgpusimShaders/MESA_SHADER_ANY_HIT_2.ptx:190) ret ;
+
+Summary of basic blocks for 'MESA_SHADER_ANY_HIT_func2_main':
+bb_00	: first: rt_alloc_mem	 last: st	
+bb_01	: first: ret	 last: ret	
+bb_02	: first: NULL	 last: NULL	
+
+GPGPU-Sim PTX: Finding postdominators for 'MESA_SHADER_ANY_HIT_func2_main'...
+GPGPU-Sim PTX: Finding immediate postdominators for 'MESA_SHADER_ANY_HIT_func2_main'...
+GPGPU-Sim PTX: pre-decoding instructions for 'MESA_SHADER_ANY_HIT_func2_main'...
+GPGPU-Sim PTX: reconvergence points for MESA_SHADER_ANY_HIT_func2_main...
+GPGPU-Sim PTX: ... end of reconvergence points for MESA_SHADER_ANY_HIT_func2_main
+Operand information not set. load_primitive_id %ssa_2;// vec1 32 ssa_2 = intrinsic load_primitive_id () ()
+Operand information not set. load_vulkan_descriptor %ssa_6, 0, 4, 7; // vec2 32 ssa_6 = intrinsic vulkan_resource_index (%ssa_5) (0, 4, 7) /* desc_set=0 */ /* binding=4 */ /* desc_type=SSBO */
+Operand information not set. load_vulkan_descriptor %ssa_14, 0, 3, 7; // vec2 32 ssa_14 = intrinsic vulkan_resource_index (%ssa_5) (0, 3, 7) /* desc_set=0 */ /* binding=3 */ /* desc_type=SSBO */
+Operand information not set. load_vulkan_descriptor %ssa_22, 0, 5, 7; // vec2 32 ssa_22 = intrinsic vulkan_resource_index (%ssa_5) (0, 5, 7) /* desc_set=0 */ /* binding=5 */ /* desc_type=SSBO */
+Operand information not set. load_vulkan_descriptor %ssa_34, 0, 2, 7; // vec2 32 ssa_34 = intrinsic vulkan_resource_index (%ssa_5) (0, 2, 7) /* desc_set=0 */ /* binding=2 */ /* desc_type=SSBO */
+GPGPU-Sim PTX: ... done pre-decoding instructions for 'MESA_SHADER_ANY_HIT_func2_main'.
+kernel_name = MESA_SHADER_RAYGEN_func0_main 
+kernel_launch_uid = 1 
+gpu_sim_cycle = 10377
+gpu_sim_insn = 879
+gpu_ipc =       0.0847
+gpu_tot_sim_cycle = 10377
+gpu_tot_sim_insn = 879
+gpu_tot_ipc =       0.0847
+gpu_tot_issued_cta = 5
+gpu_occupancy = 3.1250% 
+gpu_tot_occupancy = 3.1250% 
+max_total_param_size = 0
+splits_table_push_back = 0
+splits_table_update_active_entry = 0
+max_recvg_time = 0
+max_st entries = 0
+max_rec entries = 0
+triggered_timeouts = 0
+gpu_st_spills = 0
+gpu_rt_spills = 0
+gpu_st_fills = 0
+gpu_rt_fills = 0
+gpu_st_fills_hits = 0
+gpu_st_fills_misses = 0
+gpu_rt_fills_hits = 0
+gpu_rt_fills_misses = 0
+avg_st_entries = 0.000000
+avg_rt_entries = 0.000000
+Reuse Stats:
+Overall Average:
+gpu_stall_dramfull = 0
+gpu_stall_icnt2sh    = 0
+partiton_level_parallism =       0.0038
+partiton_level_parallism_total  =       0.0038
+partiton_level_parallism_util =       1.0000
+partiton_level_parallism_util_total  =       1.0000
+L2_BW  =       0.1642 GB/Sec
+L2_BW_total  =       0.1642 GB/Sec
+gpu_total_sim_rate=439
+
+========= Core cache stats =========
+L1I_cache:
+	L1I_total_cache_accesses = 0
+	L1I_total_cache_misses = 0
+	L1I_total_cache_pending_hits = 0
+	L1I_total_cache_reservation_fails = 0
+L1D_cache:
+	L1D_cache_core[0]: Access = 52, Miss = 38, Miss_rate = 0.731, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[1]: Access = 1, Miss = 1, Miss_rate = 1.000, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[2]: Access = 1, Miss = 1, Miss_rate = 1.000, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[3]: Access = 1, Miss = 1, Miss_rate = 1.000, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[4]: Access = 1, Miss = 1, Miss_rate = 1.000, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[5]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[6]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[7]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[8]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[9]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[10]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[11]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[12]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[13]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[14]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[15]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[16]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[17]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[18]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[19]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[20]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[21]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[22]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[23]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[24]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[25]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[26]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[27]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[28]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_cache_core[29]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L1D_total_cache_accesses = 56
+	L1D_total_cache_misses = 42
+	L1D_total_cache_miss_rate = 0.7500
+	L1D_total_cache_pending_hits = 0
+	L1D_total_cache_reservation_fails = 0
+	L1D_cache_data_port_util = 0.002
+	L1D_cache_fill_port_util = 0.004
+L1C_cache:
+	L1C_total_cache_accesses = 0
+	L1C_total_cache_misses = 0
+	L1C_total_cache_pending_hits = 0
+	L1C_total_cache_reservation_fails = 0
+L1T_cache:
+	L1T_total_cache_accesses = 0
+	L1T_total_cache_misses = 0
+	L1T_total_cache_pending_hits = 0
+	L1T_total_cache_reservation_fails = 0
+L0_Complet_Cache:
+	L0C_cache_core[0]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[1]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[2]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[3]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[4]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[5]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[6]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[7]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[8]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[9]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[10]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[11]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[12]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[13]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[14]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[15]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[16]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[17]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[18]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[19]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[20]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[21]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[22]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[23]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[24]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[25]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[26]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[27]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[28]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_cache_core[29]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+	L0C_total_cache_accesses = 0
+	L0C_total_cache_misses = 0
+	L0C_total_cache_pending_hits = 0
+	L0C_total_cache_reservation_fails = 0
+
+Total_core_cache_stats:
+	Total_core_cache_stats_breakdown[GLOBAL_ACC_R][HIT] = 12
+	Total_core_cache_stats_breakdown[GLOBAL_ACC_R][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[GLOBAL_ACC_R][MISS] = 20
+	Total_core_cache_stats_breakdown[GLOBAL_ACC_R][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[GLOBAL_ACC_R][SECTOR_MISS] = 13
+	Total_core_cache_stats_breakdown[LOCAL_ACC_R][HIT] = 0
+	Total_core_cache_stats_breakdown[LOCAL_ACC_R][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[LOCAL_ACC_R][MISS] = 0
+	Total_core_cache_stats_breakdown[LOCAL_ACC_R][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[LOCAL_ACC_R][SECTOR_MISS] = 0
+	Total_core_cache_stats_breakdown[CONST_ACC_R][HIT] = 0
+	Total_core_cache_stats_breakdown[CONST_ACC_R][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[CONST_ACC_R][MISS] = 0
+	Total_core_cache_stats_breakdown[CONST_ACC_R][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[CONST_ACC_R][SECTOR_MISS] = 0
+	Total_core_cache_stats_breakdown[TEXTURE_ACC_R][HIT] = 0
+	Total_core_cache_stats_breakdown[TEXTURE_ACC_R][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[TEXTURE_ACC_R][MISS] = 0
+	Total_core_cache_stats_breakdown[TEXTURE_ACC_R][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[TEXTURE_ACC_R][SECTOR_MISS] = 0
+	Total_core_cache_stats_breakdown[GLOBAL_ACC_W][HIT] = 2
+	Total_core_cache_stats_breakdown[GLOBAL_ACC_W][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[GLOBAL_ACC_W][MISS] = 9
+	Total_core_cache_stats_breakdown[GLOBAL_ACC_W][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[GLOBAL_ACC_W][SECTOR_MISS] = 0
+	Total_core_cache_stats_breakdown[BRU_ST_SPILL][HIT] = 0
+	Total_core_cache_stats_breakdown[BRU_ST_SPILL][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[BRU_ST_SPILL][MISS] = 0
+	Total_core_cache_stats_breakdown[BRU_ST_SPILL][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[BRU_ST_SPILL][SECTOR_MISS] = 0
+	Total_core_cache_stats_breakdown[BRU_ST_FILL][HIT] = 0
+	Total_core_cache_stats_breakdown[BRU_ST_FILL][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[BRU_ST_FILL][MISS] = 0
+	Total_core_cache_stats_breakdown[BRU_ST_FILL][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[BRU_ST_FILL][SECTOR_MISS] = 0
+	Total_core_cache_stats_breakdown[BRU_RT_SPILL][HIT] = 0
+	Total_core_cache_stats_breakdown[BRU_RT_SPILL][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[BRU_RT_SPILL][MISS] = 0
+	Total_core_cache_stats_breakdown[BRU_RT_SPILL][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[BRU_RT_SPILL][SECTOR_MISS] = 0
+	Total_core_cache_stats_breakdown[BRU_RT_FILL][HIT] = 0
+	Total_core_cache_stats_breakdown[BRU_RT_FILL][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[BRU_RT_FILL][MISS] = 0
+	Total_core_cache_stats_breakdown[BRU_RT_FILL][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[BRU_RT_FILL][SECTOR_MISS] = 0
+	Total_core_cache_stats_breakdown[LOCAL_ACC_W][HIT] = 0
+	Total_core_cache_stats_breakdown[LOCAL_ACC_W][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[LOCAL_ACC_W][MISS] = 0
+	Total_core_cache_stats_breakdown[LOCAL_ACC_W][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[LOCAL_ACC_W][SECTOR_MISS] = 0
+	Total_core_cache_stats_breakdown[L1_WRBK_ACC][HIT] = 0
+	Total_core_cache_stats_breakdown[L1_WRBK_ACC][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[L1_WRBK_ACC][MISS] = 0
+	Total_core_cache_stats_breakdown[L1_WRBK_ACC][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[L1_WRBK_ACC][SECTOR_MISS] = 0
+	Total_core_cache_stats_breakdown[L2_WRBK_ACC][HIT] = 0
+	Total_core_cache_stats_breakdown[L2_WRBK_ACC][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[L2_WRBK_ACC][MISS] = 0
+	Total_core_cache_stats_breakdown[L2_WRBK_ACC][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[L2_WRBK_ACC][SECTOR_MISS] = 0
+	Total_core_cache_stats_breakdown[INST_ACC_R][HIT] = 0
+	Total_core_cache_stats_breakdown[INST_ACC_R][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[INST_ACC_R][MISS] = 0
+	Total_core_cache_stats_breakdown[INST_ACC_R][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[INST_ACC_R][SECTOR_MISS] = 0
+	Total_core_cache_stats_breakdown[L1_WR_ALLOC_R][HIT] = 0
+	Total_core_cache_stats_breakdown[L1_WR_ALLOC_R][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[L1_WR_ALLOC_R][MISS] = 0
+	Total_core_cache_stats_breakdown[L1_WR_ALLOC_R][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[L1_WR_ALLOC_R][SECTOR_MISS] = 0
+	Total_core_cache_stats_breakdown[L2_WR_ALLOC_R][HIT] = 0
+	Total_core_cache_stats_breakdown[L2_WR_ALLOC_R][HIT_RESERVED] = 0
+	Total_core_cache_stats_breakdown[L2_WR_ALLOC_R][MISS] = 0
+	Total_core_cache_stats_breakdown[L2_WR_ALLOC_R][RESERVATION_FAIL] = 0
+	Total_core_cache_stats_breakdown[L2_WR_ALLOC_R][SECTOR_MISS] = 0
+	Total_core_cache_stats_breakdown[GLOBAL_ACC_R][TOTAL_ACCESS] = 45
+	Total_core_cache_stats_breakdown[GLOBAL_ACC_W][TOTAL_ACCESS] = 11
+	Total_core_cache_stats_breakdown[GLOBAL_ACC_R]_miss_rate = 0.7333
+RT_Total_core_cache_stats_breakdown:
+	rt_read_cold_miss = 9
+	rt_read_other_miss = 0
+	rt_stats[READ][HIT] = 2
+	rt_stats[READ][HIT_RESERVED] = 0
+	rt_stats[READ][MISS] = 9
+	rt_stats[READ][RESERVATION_FAIL] = 0
+	rt_stats[READ][SECTOR_MISS] = 7
+	rt_read_miss_rate = 0.8889
+	rt_stats[WRITE][HIT] = 0
+	rt_stats[WRITE][HIT_RESERVED] = 0
+	rt_stats[WRITE][MISS] = 6
+	rt_stats[WRITE][RESERVATION_FAIL] = 0
+	rt_stats[WRITE][SECTOR_MISS] = 0
+	rt_overall_miss_rate = 0.9167
+
+Total_core_cache_fail_stats:
+ctas_completed 5, Shader 0 warp_id issue ditsribution:
+warp_id:
+0, 
+distro:
+216, 
+gpgpu_n_tot_thrd_icount = 11008
+gpgpu_n_tot_w_icount = 344
+gpgpu_n_stall_shd_mem = 0
+gpgpu_n_mem_read_local = 0
+gpgpu_n_mem_write_local = 0
+gpgpu_n_mem_read_global = 28
+gpgpu_n_mem_write_global = 11
+gpgpu_n_mem_texture = 0
+gpgpu_n_mem_const = 0
+gpgpu_n_rt_mem:
+4	4	4	2	0	4	0	0	
+gpgpu_n_local_load_insn  = 0
+gpgpu_n_local_store_insn = 0
+gpgpu_n_global_load_insn  = 47
+gpgpu_n_global_store_insn = 5
+gpgpu_n_shmem_insn = 0
+gpgpu_n_sstarr_insn = 0
+gpgpu_n_tex_insn = 0
+gpgpu_n_const_mem_insn = 0
+gpgpu_n_param_mem_insn = 0
+gpgpu_n_rt_insn = 1
+gpgpu_n_rt_access_insn = 9
+gpgpu_n_shmem_bkconflict = 0
+gpgpu_n_cache_bkconflict = 0
+gpgpu_n_intrawarp_mshr_merge = 0
+gpgpu_n_cmem_portconflict = 0
+gpgpu_stall_shd_mem[c_mem][resource_stall] = 0
+gpgpu_stall_shd_mem[s_mem][bk_conf] = 0
+gpgpu_stall_shd_mem[gl_mem][resource_stall] = 0
+gpgpu_stall_shd_mem[gl_mem][coal_stall] = 0
+gpgpu_stall_shd_mem[gl_mem][data_port_stall] = 0
+gpu_reg_bank_conflict_stalls = 0
+rt_avg_warp_latency = 2773.000000
+rt_avg_thread_latency = 81.000000
+rt_avg_efficiency = 0.029368
+rt_avg_warp_occupancy = 0.249910
+rt_total_cacheline_fetched = 18	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+rt_total_intersection_stages = 56	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+rt_op_intensity = 3.111111	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+rt_perf = 0.020187	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+rt_avg_op_intensity = -nan
+rt_avg_performance = -nan
+rt_writes = 6
+rt_max_mem_store_q = 4
+rt_avg_mem_store_cycles = 0.200000
+rt_cycles = 0.008911
+rt_total_cycles = 92.466667
+rt_total_cycles_sum = 2774
+rt_cycles_dist:	2774	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rt_store_cycles_dist:	6	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rt_latency_dist = 0.00	0.00	2530.00	56.00	168.00	0.00	2.00	0.00	0.00	0.00	0.00	9.00	9.00	0.00	0.00	
+warp_dist_rt = 4160	0	0	0	0	0	0	0	0	0	2773	
+warp_dist_empty = 6933	0	0	0	0	0	0	0	0	0	0	
+Warp Occupancy Distribution:
+Stall:0	W0_Idle:20988	W0_Scoreboard:6400	W1:184	W2:0	W3:0	W4:1	W5:159	W6:0	W7:0	W8:0	W9:0	W10:0	W11:0	W12:0	W13:0	W14:0	W15:0	W16:0	W17:0	W18:0	W19:0	W20:0	W21:0	W22:0	W23:0	W24:0	W25:0	W26:0	W27:0	W28:0	W29:0	W30:0	W31:0	W32:0
+single_issue_nums: WS0:344	WS1:0	WS2:0	WS3:0	
+dual_issue_nums: WS0:0	WS1:0	WS2:0	WS3:0	
+traffic_breakdown_coretomem[GLOBAL_ACC_R] = 224 {8:28,}
+traffic_breakdown_coretomem[GLOBAL_ACC_W] = 440 {40:11,}
+traffic_breakdown_memtocore[GLOBAL_ACC_R] = 1120 {40:28,}
+traffic_breakdown_memtocore[GLOBAL_ACC_W] = 88 {8:11,}
+maxmflatency = 309 
+max_icnt2mem_latency = 27 
+maxmrqlatency = 8 
+max_icnt2sh_latency = 2 
+averagemflatency = 260 
+avg_icnt2mem_latency = 12 
+avg_mrq_latency = 1 
+avg_icnt2sh_latency = 2 
+mrq_lat_table:18 	0 	3 	2 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	
+dq_lat_table:0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	
+mf_lat_table:0 	0 	0 	0 	0 	0 	0 	12 	27 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	
+icnt2mem_lat_table:0 	21 	1 	0 	17 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	
+icnt2sh_lat_table:0 	39 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	
+mf_lat_pw_table:0 	0 	0 	0 	0 	0 	0 	4 	6 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	0 	
+maximum concurrent accesses to same row:
+dram[0]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[1]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[2]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[3]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[4]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[5]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[6]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[7]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[8]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[9]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[10]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[11]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+maximum service time to same row:
+dram[0]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[1]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[2]:         0         0         0         0         0         0         0         0         0         0         0         0      8883         0         0         0 
+dram[3]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[4]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[5]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[6]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[7]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[8]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[9]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[10]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[11]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+average row accesses per activate:
+dram[0]:       inf      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan 
+dram[1]:       inf      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan 
+dram[2]:       inf      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan  1.000000      -nan      -nan      -nan 
+dram[3]:       inf       inf      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan 
+dram[4]:      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan 
+dram[5]:      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan 
+dram[6]:      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan 
+dram[7]:       inf       inf      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan 
+dram[8]:      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan 
+dram[9]:      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan 
+dram[10]:       inf      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan 
+dram[11]:       inf      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan      -nan 
+average row locality = 23/1 = 23.000000
+number of total memory accesses made:
+dram[0]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[1]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[2]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[3]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[4]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[5]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[6]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[7]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[8]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[9]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[10]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[11]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+total accesses: 0
+min_bank_accesses = 0!
+min_chip_accesses = 0!
+number of total read accesses:
+dram[0]:         2         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[1]:         1         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[2]:         1         0         0         0         0         0         0         0         0         0         0         0         1         0         0         0 
+dram[3]:         4         4         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[4]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[5]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[6]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[7]:         4         4         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[8]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[9]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[10]:         1         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[11]:         1         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+total dram reads = 23
+min_bank_accesses = 0!
+min_chip_accesses = 0!
+number of total write accesses:
+dram[0]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[1]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[2]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[3]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[4]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[5]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[6]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[7]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[8]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[9]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[10]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+dram[11]:         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0 
+total dram writes = 0
+min_bank_accesses = 0!
+min_chip_accesses = 0!
+average mf latency per bank:
+dram[0]:        302    none      none      none      none      none      none      none      none      none      none      none      none      none      none      none  
+dram[1]:        306    none      none      none      none      none      none      none      none      none      none      none      none      none      none      none  
+dram[2]:        867    none      none      none      none      none      none      none      none      none      none      none         869    none      none      none  
+dram[3]:        282       280    none      none      none      none      none      none      none      none      none      none      none      none      none      none  
+dram[4]:     none      none      none      none      none      none      none      none      none      none      none      none      none      none      none      none  
+dram[5]:     none      none      none      none      none      none      none      none      none      none      none      none      none      none      none      none  
+dram[6]:     none      none      none      none      none      none      none      none      none      none      none      none      none      none      none      none  
+dram[7]:        282       287    none      none      none      none      none      none      none      none      none      none      none      none      none      none  
+dram[8]:     none      none      none      none      none      none      none      none      none      none      none      none      none      none      none      none  
+dram[9]:     none      none      none      none      none      none      none      none      none      none      none      none      none      none      none      none  
+dram[10]:        306    none      none      none      none      none      none      none      none      none      none      none      none      none      none      none  
+dram[11]:       1535    none      none      none      none      none      none      none      none      none      none      none      none      none      none      none  
+maximum mf latency per bank:
+dram[0]:        306         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0
+dram[1]:        306         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0
+dram[2]:        306         0         0         0         0         0         0         0         0         0         0         0       306         0       167       167
+dram[3]:        286       286         0         0         0         0         0         0         0         0         0         0         0         0         0       167
+dram[4]:          0         0         0         0         0         0         0         0         0         0         0         0         0         0       167         0
+dram[5]:          0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0
+dram[6]:          0         0         0         0         0         0         0         0         0         0         0         0       167         0         0         0
+dram[7]:        287       288         0         0         0         0         0         0         0         0         0         0       167         0         0         0
+dram[8]:          0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0
+dram[9]:          0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0
+dram[10]:        306         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0
+dram[11]:        309         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0
+DRAM[0]: 16 bks, busW=2 BL=16 CL=20, tRRD=10 tCCD=4, tRCD=20 tRAS=50 tRP=20 tRC=62
+n_cmd=26606 n_nop=26603 n_act=1 n_pre=0 n_ref_event=0 n_req=2 n_rd=2 n_rd_L2_A=0 n_write=0 n_wr_bk=0 bw_util=0.0003007
+n_activity=80 dram_eff=0.1
+bk0: 2a 26586i bk1: 0a 26606i bk2: 0a 26606i bk3: 0a 26606i bk4: 0a 26606i bk5: 0a 26606i bk6: 0a 26606i bk7: 0a 26606i bk8: 0a 26606i bk9: 0a 26606i bk10: 0a 26606i bk11: 0a 26606i bk12: 0a 26606i bk13: 0a 26606i bk14: 0a 26606i bk15: 0a 26606i 
+
+------------------------------------------------------------------------
+
+Row_Buffer_Locality = 1.000000
+Row_Buffer_Locality_read = 1.000000
+Row_Buffer_Locality_write = -nan
+Bank_Level_Parallism = 1.000000
+Bank_Level_Parallism_Col = 1.000000
+Bank_Level_Parallism_Ready = 1.000000
+write_to_read_ratio_blp_rw_average = 0.000000
+GrpLevelPara = 1.000000 
+
+BW Util details:
+bwutil = 0.000301 
+total_CMD = 26606 
+util_bw = 8 
+Wasted_Col = 20 
+Wasted_Row = 0 
+Idle = 26578 
+
+BW Util Bottlenecks: 
+RCDc_limit = 20 
+RCDWRc_limit = 0 
+WTRc_limit = 0 
+RTWc_limit = 0 
+CCDLc_limit = 0 
+rwq = 0 
+CCDLc_limit_alone = 0 
+WTRc_limit_alone = 0 
+RTWc_limit_alone = 0 
+
+Commands details: 
+total_CMD = 26606 
+n_nop = 26603 
+Read = 2 
+Write = 0 
+L2_Alloc = 0 
+L2_WB = 0 
+n_act = 1 
+n_pre = 0 
+n_ref = 0 
+n_req = 2 
+total_req = 2 
+
+Dual Bus Interface Util: 
+issued_total_row = 1 
+issued_total_col = 2 
+Row_Bus_Util =  0.000038 
+CoL_Bus_Util = 0.000075 
+Either_Row_CoL_Bus_Util = 0.000113 
+Issued_on_Two_Bus_Simul_Util = 0.000000 
+issued_two_Eff = 0.000000 
+queue_avg = 0.000000 
+
+
+dram_util_bins: 0 0 0 0 0 0 0 0 0 0
+dram_eff_bins: 0 0 0 0 0 0 0 0 0 0
+mrqq: max=0 avg=0
+DRAM[1]: 16 bks, busW=2 BL=16 CL=20, tRRD=10 tCCD=4, tRCD=20 tRAS=50 tRP=20 tRC=62
+n_cmd=26606 n_nop=26604 n_act=1 n_pre=0 n_ref_event=0 n_req=1 n_rd=1 n_rd_L2_A=0 n_write=0 n_wr_bk=0 bw_util=0.0001503
+n_activity=62 dram_eff=0.06452
+bk0: 1a 26586i bk1: 0a 26606i bk2: 0a 26606i bk3: 0a 26606i bk4: 0a 26606i bk5: 0a 26606i bk6: 0a 26606i bk7: 0a 26606i bk8: 0a 26606i bk9: 0a 26606i bk10: 0a 26606i bk11: 0a 26606i bk12: 0a 26606i bk13: 0a 26606i bk14: 0a 26606i bk15: 0a 26606i 
+
+------------------------------------------------------------------------
+
+Row_Buffer_Locality = 1.000000
+Row_Buffer_Locality_read = 1.000000
+Row_Buffer_Locality_write = -nan
+Bank_Level_Parallism = 1.000000
+Bank_Level_Parallism_Col = 1.000000
+Bank_Level_Parallism_Ready = 1.000000
+write_to_read_ratio_blp_rw_average = 0.000000
+GrpLevelPara = 1.000000 
+
+BW Util details:
+bwutil = 0.000150 
+total_CMD = 26606 
+util_bw = 4 
+Wasted_Col = 20 
+Wasted_Row = 0 
+Idle = 26582 
+
+BW Util Bottlenecks: 
+RCDc_limit = 20 
+RCDWRc_limit = 0 
+WTRc_limit = 0 
+RTWc_limit = 0 
+CCDLc_limit = 0 
+rwq = 0 
+CCDLc_limit_alone = 0 
+WTRc_limit_alone = 0 
+RTWc_limit_alone = 0 
+
+Commands details: 
+total_CMD = 26606 
+n_nop = 26604 
+Read = 1 
+Write = 0 
+L2_Alloc = 0 
+L2_WB = 0 
+n_act = 1 
+n_pre = 0 
+n_ref = 0 
+n_req = 1 
+total_req = 1 
+
+Dual Bus Interface Util: 
+issued_total_row = 1 
+issued_total_col = 1 
+Row_Bus_Util =  0.000038 
+CoL_Bus_Util = 0.000038 
+Either_Row_CoL_Bus_Util = 0.000075 
+Issued_on_Two_Bus_Simul_Util = 0.000000 
+issued_two_Eff = 0.000000 
+queue_avg = 0.000000 
+
+
+dram_util_bins: 0 0 0 0 0 0 0 0 0 0
+dram_eff_bins: 0 0 0 0 0 0 0 0 0 0
+mrqq: max=0 avg=0
+DRAM[2]: 16 bks, busW=2 BL=16 CL=20, tRRD=10 tCCD=4, tRCD=20 tRAS=50 tRP=20 tRC=62
+n_cmd=26606 n_nop=26602 n_act=2 n_pre=0 n_ref_event=0 n_req=2 n_rd=2 n_rd_L2_A=0 n_write=0 n_wr_bk=0 bw_util=0.0003007
+n_activity=124 dram_eff=0.06452
+bk0: 1a 26585i bk1: 0a 26605i bk2: 0a 26605i bk3: 0a 26605i bk4: 0a 26606i bk5: 0a 26606i bk6: 0a 26606i bk7: 0a 26606i bk8: 0a 26606i bk9: 0a 26607i bk10: 0a 26607i bk11: 0a 26607i bk12: 1a 26586i bk13: 0a 26605i bk14: 0a 26606i bk15: 0a 26606i 
+
+------------------------------------------------------------------------
+
+Row_Buffer_Locality = 0.500000
+Row_Buffer_Locality_read = 0.500000
+Row_Buffer_Locality_write = -nan
+Bank_Level_Parallism = 1.000000
+Bank_Level_Parallism_Col = 1.000000
+Bank_Level_Parallism_Ready = 1.000000
+write_to_read_ratio_blp_rw_average = 0.000000
+GrpLevelPara = 1.000000 
+
+BW Util details:
+bwutil = 0.000301 
+total_CMD = 26606 
+util_bw = 8 
+Wasted_Col = 40 
+Wasted_Row = 0 
+Idle = 26558 
+
+BW Util Bottlenecks: 
+RCDc_limit = 40 
+RCDWRc_limit = 0 
+WTRc_limit = 0 
+RTWc_limit = 0 
+CCDLc_limit = 0 
+rwq = 0 
+CCDLc_limit_alone = 0 
+WTRc_limit_alone = 0 
+RTWc_limit_alone = 0 
+
+Commands details: 
+total_CMD = 26606 
+n_nop = 26602 
+Read = 2 
+Write = 0 
+L2_Alloc = 0 
+L2_WB = 0 
+n_act = 2 
+n_pre = 0 
+n_ref = 0 
+n_req = 2 
+total_req = 2 
+
+Dual Bus Interface Util: 
+issued_total_row = 2 
+issued_total_col = 2 
+Row_Bus_Util =  0.000075 
+CoL_Bus_Util = 0.000075 
+Either_Row_CoL_Bus_Util = 0.000150 
+Issued_on_Two_Bus_Simul_Util = 0.000000 
+issued_two_Eff = 0.000000 
+queue_avg = 0.000000 
+
+
+dram_util_bins: 0 0 0 0 0 0 0 0 0 0
+dram_eff_bins: 0 0 0 0 0 0 0 0 0 0
+mrqq: max=0 avg=0
+DRAM[3]: 16 bks, busW=2 BL=16 CL=20, tRRD=10 tCCD=4, tRCD=20 tRAS=50 tRP=20 tRC=62
+n_cmd=26606 n_nop=26596 n_act=2 n_pre=0 n_ref_event=0 n_req=8 n_rd=8 n_rd_L2_A=0 n_write=0 n_wr_bk=0 bw_util=0.001203
+n_activity=200 dram_eff=0.16
+bk0: 4a 26582i bk1: 4a 26586i bk2: 0a 26605i bk3: 0a 26605i bk4: 0a 26605i bk5: 0a 26606i bk6: 0a 26606i bk7: 0a 26606i bk8: 0a 26606i bk9: 0a 26606i bk10: 0a 26606i bk11: 0a 26606i bk12: 0a 26606i bk13: 0a 26606i bk14: 0a 26606i bk15: 0a 26607i 
+
+------------------------------------------------------------------------
+
+Row_Buffer_Locality = 1.000000
+Row_Buffer_Locality_read = 1.000000
+Row_Buffer_Locality_write = -nan
+Bank_Level_Parallism = 1.000000
+Bank_Level_Parallism_Col = 1.000000
+Bank_Level_Parallism_Ready = 1.000000
+write_to_read_ratio_blp_rw_average = 0.000000
+GrpLevelPara = 1.000000 
+
+BW Util details:
+bwutil = 0.001203 
+total_CMD = 26606 
+util_bw = 32 
+Wasted_Col = 40 
+Wasted_Row = 0 
+Idle = 26534 
+
+BW Util Bottlenecks: 
+RCDc_limit = 40 
+RCDWRc_limit = 0 
+WTRc_limit = 0 
+RTWc_limit = 0 
+CCDLc_limit = 0 
+rwq = 0 
+CCDLc_limit_alone = 0 
+WTRc_limit_alone = 0 
+RTWc_limit_alone = 0 
+
+Commands details: 
+total_CMD = 26606 
+n_nop = 26596 
+Read = 8 
+Write = 0 
+L2_Alloc = 0 
+L2_WB = 0 
+n_act = 2 
+n_pre = 0 
+n_ref = 0 
+n_req = 8 
+total_req = 8 
+
+Dual Bus Interface Util: 
+issued_total_row = 2 
+issued_total_col = 8 
+Row_Bus_Util =  0.000075 
+CoL_Bus_Util = 0.000301 
+Either_Row_CoL_Bus_Util = 0.000376 
+Issued_on_Two_Bus_Simul_Util = 0.000000 
+issued_two_Eff = 0.000000 
+queue_avg = 0.000677 
+
+
+dram_util_bins: 0 0 0 0 0 0 0 0 0 0
+dram_eff_bins: 0 0 0 0 0 0 0 0 0 0
+mrqq: max=1 avg=0.000676539
+DRAM[4]: 16 bks, busW=2 BL=16 CL=20, tRRD=10 tCCD=4, tRCD=20 tRAS=50 tRP=20 tRC=62
+n_cmd=26606 n_nop=26606 n_act=0 n_pre=0 n_ref_event=0 n_req=0 n_rd=0 n_rd_L2_A=0 n_write=0 n_wr_bk=0 bw_util=0
+n_activity=0 dram_eff=-nan
+bk0: 0a 26606i bk1: 0a 26606i bk2: 0a 26606i bk3: 0a 26606i bk4: 0a 26606i bk5: 0a 26606i bk6: 0a 26606i bk7: 0a 26606i bk8: 0a 26606i bk9: 0a 26606i bk10: 0a 26606i bk11: 0a 26606i bk12: 0a 26606i bk13: 0a 26606i bk14: 0a 26606i bk15: 0a 26606i 
+
+------------------------------------------------------------------------
+
+Row_Buffer_Locality = -nan
+Row_Buffer_Locality_read = -nan
+Row_Buffer_Locality_write = -nan
+Bank_Level_Parallism = -nan
+Bank_Level_Parallism_Col = -nan
+Bank_Level_Parallism_Ready = -nan
+write_to_read_ratio_blp_rw_average = -nan
+GrpLevelPara = -nan 
+
+BW Util details:
+bwutil = 0.000000 
+total_CMD = 26606 
+util_bw = 0 
+Wasted_Col = 0 
+Wasted_Row = 0 
+Idle = 26606 
+
+BW Util Bottlenecks: 
+RCDc_limit = 0 
+RCDWRc_limit = 0 
+WTRc_limit = 0 
+RTWc_limit = 0 
+CCDLc_limit = 0 
+rwq = 0 
+CCDLc_limit_alone = 0 
+WTRc_limit_alone = 0 
+RTWc_limit_alone = 0 
+
+Commands details: 
+total_CMD = 26606 
+n_nop = 26606 
+Read = 0 
+Write = 0 
+L2_Alloc = 0 
+L2_WB = 0 
+n_act = 0 
+n_pre = 0 
+n_ref = 0 
+n_req = 0 
+total_req = 0 
+
+Dual Bus Interface Util: 
+issued_total_row = 0 
+issued_total_col = 0 
+Row_Bus_Util =  0.000000 
+CoL_Bus_Util = 0.000000 
+Either_Row_CoL_Bus_Util = 0.000000 
+Issued_on_Two_Bus_Simul_Util = 0.000000 
+issued_two_Eff = -nan 
+queue_avg = 0.000000 
+
+
+dram_util_bins: 0 0 0 0 0 0 0 0 0 0
+dram_eff_bins: 0 0 0 0 0 0 0 0 0 0
+mrqq: max=0 avg=0
+DRAM[5]: 16 bks, busW=2 BL=16 CL=20, tRRD=10 tCCD=4, tRCD=20 tRAS=50 tRP=20 tRC=62
+n_cmd=26606 n_nop=26606 n_act=0 n_pre=0 n_ref_event=0 n_req=0 n_rd=0 n_rd_L2_A=0 n_write=0 n_wr_bk=0 bw_util=0
+n_activity=0 dram_eff=-nan
+bk0: 0a 26606i bk1: 0a 26606i bk2: 0a 26606i bk3: 0a 26606i bk4: 0a 26606i bk5: 0a 26606i bk6: 0a 26606i bk7: 0a 26606i bk8: 0a 26606i bk9: 0a 26606i bk10: 0a 26606i bk11: 0a 26606i bk12: 0a 26606i bk13: 0a 26606i bk14: 0a 26606i bk15: 0a 26606i 
+
+------------------------------------------------------------------------
+
+Row_Buffer_Locality = -nan
+Row_Buffer_Locality_read = -nan
+Row_Buffer_Locality_write = -nan
+Bank_Level_Parallism = -nan
+Bank_Level_Parallism_Col = -nan
+Bank_Level_Parallism_Ready = -nan
+write_to_read_ratio_blp_rw_average = -nan
+GrpLevelPara = -nan 
+
+BW Util details:
+bwutil = 0.000000 
+total_CMD = 26606 
+util_bw = 0 
+Wasted_Col = 0 
+Wasted_Row = 0 
+Idle = 26606 
+
+BW Util Bottlenecks: 
+RCDc_limit = 0 
+RCDWRc_limit = 0 
+WTRc_limit = 0 
+RTWc_limit = 0 
+CCDLc_limit = 0 
+rwq = 0 
+CCDLc_limit_alone = 0 
+WTRc_limit_alone = 0 
+RTWc_limit_alone = 0 
+
+Commands details: 
+total_CMD = 26606 
+n_nop = 26606 
+Read = 0 
+Write = 0 
+L2_Alloc = 0 
+L2_WB = 0 
+n_act = 0 
+n_pre = 0 
+n_ref = 0 
+n_req = 0 
+total_req = 0 
+
+Dual Bus Interface Util: 
+issued_total_row = 0 
+issued_total_col = 0 
+Row_Bus_Util =  0.000000 
+CoL_Bus_Util = 0.000000 
+Either_Row_CoL_Bus_Util = 0.000000 
+Issued_on_Two_Bus_Simul_Util = 0.000000 
+issued_two_Eff = -nan 
+queue_avg = 0.000000 
+
+
+dram_util_bins: 0 0 0 0 0 0 0 0 0 0
+dram_eff_bins: 0 0 0 0 0 0 0 0 0 0
+mrqq: max=0 avg=0
+DRAM[6]: 16 bks, busW=2 BL=16 CL=20, tRRD=10 tCCD=4, tRCD=20 tRAS=50 tRP=20 tRC=62
+n_cmd=26606 n_nop=26606 n_act=0 n_pre=0 n_ref_event=0 n_req=0 n_rd=0 n_rd_L2_A=0 n_write=0 n_wr_bk=0 bw_util=0
+n_activity=0 dram_eff=-nan
+bk0: 0a 26606i bk1: 0a 26606i bk2: 0a 26606i bk3: 0a 26606i bk4: 0a 26606i bk5: 0a 26606i bk6: 0a 26606i bk7: 0a 26606i bk8: 0a 26606i bk9: 0a 26606i bk10: 0a 26606i bk11: 0a 26606i bk12: 0a 26606i bk13: 0a 26606i bk14: 0a 26606i bk15: 0a 26606i 
+
+------------------------------------------------------------------------
+
+Row_Buffer_Locality = -nan
+Row_Buffer_Locality_read = -nan
+Row_Buffer_Locality_write = -nan
+Bank_Level_Parallism = -nan
+Bank_Level_Parallism_Col = -nan
+Bank_Level_Parallism_Ready = -nan
+write_to_read_ratio_blp_rw_average = -nan
+GrpLevelPara = -nan 
+
+BW Util details:
+bwutil = 0.000000 
+total_CMD = 26606 
+util_bw = 0 
+Wasted_Col = 0 
+Wasted_Row = 0 
+Idle = 26606 
+
+BW Util Bottlenecks: 
+RCDc_limit = 0 
+RCDWRc_limit = 0 
+WTRc_limit = 0 
+RTWc_limit = 0 
+CCDLc_limit = 0 
+rwq = 0 
+CCDLc_limit_alone = 0 
+WTRc_limit_alone = 0 
+RTWc_limit_alone = 0 
+
+Commands details: 
+total_CMD = 26606 
+n_nop = 26606 
+Read = 0 
+Write = 0 
+L2_Alloc = 0 
+L2_WB = 0 
+n_act = 0 
+n_pre = 0 
+n_ref = 0 
+n_req = 0 
+total_req = 0 
+
+Dual Bus Interface Util: 
+issued_total_row = 0 
+issued_total_col = 0 
+Row_Bus_Util =  0.000000 
+CoL_Bus_Util = 0.000000 
+Either_Row_CoL_Bus_Util = 0.000000 
+Issued_on_Two_Bus_Simul_Util = 0.000000 
+issued_two_Eff = -nan 
+queue_avg = 0.000000 
+
+
+dram_util_bins: 0 0 0 0 0 0 0 0 0 0
+dram_eff_bins: 0 0 0 0 0 0 0 0 0 0
+mrqq: max=0 avg=0
+DRAM[7]: 16 bks, busW=2 BL=16 CL=20, tRRD=10 tCCD=4, tRCD=20 tRAS=50 tRP=20 tRC=62
+n_cmd=26606 n_nop=26596 n_act=2 n_pre=0 n_ref_event=0 n_req=8 n_rd=8 n_rd_L2_A=0 n_write=0 n_wr_bk=0 bw_util=0.001203
+n_activity=146 dram_eff=0.2192
+bk0: 4a 26583i bk1: 4a 26577i bk2: 0a 26605i bk3: 0a 26605i bk4: 0a 26605i bk5: 0a 26606i bk6: 0a 26606i bk7: 0a 26606i bk8: 0a 26606i bk9: 0a 26606i bk10: 0a 26606i bk11: 0a 26606i bk12: 0a 26606i bk13: 0a 26606i bk14: 0a 26606i bk15: 0a 26607i 
+
+------------------------------------------------------------------------
+
+Row_Buffer_Locality = 1.000000
+Row_Buffer_Locality_read = 1.000000
+Row_Buffer_Locality_write = -nan
+Bank_Level_Parallism = 1.000000
+Bank_Level_Parallism_Col = 1.000000
+Bank_Level_Parallism_Ready = 1.000000
+write_to_read_ratio_blp_rw_average = 0.000000
+GrpLevelPara = 1.000000 
+
+BW Util details:
+bwutil = 0.001203 
+total_CMD = 26606 
+util_bw = 32 
+Wasted_Col = 40 
+Wasted_Row = 0 
+Idle = 26534 
+
+BW Util Bottlenecks: 
+RCDc_limit = 40 
+RCDWRc_limit = 0 
+WTRc_limit = 0 
+RTWc_limit = 0 
+CCDLc_limit = 0 
+rwq = 0 
+CCDLc_limit_alone = 0 
+WTRc_limit_alone = 0 
+RTWc_limit_alone = 0 
+
+Commands details: 
+total_CMD = 26606 
+n_nop = 26596 
+Read = 8 
+Write = 0 
+L2_Alloc = 0 
+L2_WB = 0 
+n_act = 2 
+n_pre = 0 
+n_ref = 0 
+n_req = 8 
+total_req = 8 
+
+Dual Bus Interface Util: 
+issued_total_row = 2 
+issued_total_col = 8 
+Row_Bus_Util =  0.000075 
+CoL_Bus_Util = 0.000301 
+Either_Row_CoL_Bus_Util = 0.000376 
+Issued_on_Two_Bus_Simul_Util = 0.000000 
+issued_two_Eff = 0.000000 
+queue_avg = 0.002894 
+
+
+dram_util_bins: 0 0 0 0 0 0 0 0 0 0
+dram_eff_bins: 0 0 0 0 0 0 0 0 0 0
+mrqq: max=3 avg=0.00289408
+DRAM[8]: 16 bks, busW=2 BL=16 CL=20, tRRD=10 tCCD=4, tRCD=20 tRAS=50 tRP=20 tRC=62
+n_cmd=26606 n_nop=26606 n_act=0 n_pre=0 n_ref_event=0 n_req=0 n_rd=0 n_rd_L2_A=0 n_write=0 n_wr_bk=0 bw_util=0
+n_activity=0 dram_eff=-nan
+bk0: 0a 26606i bk1: 0a 26606i bk2: 0a 26606i bk3: 0a 26606i bk4: 0a 26606i bk5: 0a 26606i bk6: 0a 26606i bk7: 0a 26606i bk8: 0a 26606i bk9: 0a 26606i bk10: 0a 26606i bk11: 0a 26606i bk12: 0a 26606i bk13: 0a 26606i bk14: 0a 26606i bk15: 0a 26606i 
+
+------------------------------------------------------------------------
+
+Row_Buffer_Locality = -nan
+Row_Buffer_Locality_read = -nan
+Row_Buffer_Locality_write = -nan
+Bank_Level_Parallism = -nan
+Bank_Level_Parallism_Col = -nan
+Bank_Level_Parallism_Ready = -nan
+write_to_read_ratio_blp_rw_average = -nan
+GrpLevelPara = -nan 
+
+BW Util details:
+bwutil = 0.000000 
+total_CMD = 26606 
+util_bw = 0 
+Wasted_Col = 0 
+Wasted_Row = 0 
+Idle = 26606 
+
+BW Util Bottlenecks: 
+RCDc_limit = 0 
+RCDWRc_limit = 0 
+WTRc_limit = 0 
+RTWc_limit = 0 
+CCDLc_limit = 0 
+rwq = 0 
+CCDLc_limit_alone = 0 
+WTRc_limit_alone = 0 
+RTWc_limit_alone = 0 
+
+Commands details: 
+total_CMD = 26606 
+n_nop = 26606 
+Read = 0 
+Write = 0 
+L2_Alloc = 0 
+L2_WB = 0 
+n_act = 0 
+n_pre = 0 
+n_ref = 0 
+n_req = 0 
+total_req = 0 
+
+Dual Bus Interface Util: 
+issued_total_row = 0 
+issued_total_col = 0 
+Row_Bus_Util =  0.000000 
+CoL_Bus_Util = 0.000000 
+Either_Row_CoL_Bus_Util = 0.000000 
+Issued_on_Two_Bus_Simul_Util = 0.000000 
+issued_two_Eff = -nan 
+queue_avg = 0.000000 
+
+
+dram_util_bins: 0 0 0 0 0 0 0 0 0 0
+dram_eff_bins: 0 0 0 0 0 0 0 0 0 0
+mrqq: max=0 avg=0
+DRAM[9]: 16 bks, busW=2 BL=16 CL=20, tRRD=10 tCCD=4, tRCD=20 tRAS=50 tRP=20 tRC=62
+n_cmd=26606 n_nop=26606 n_act=0 n_pre=0 n_ref_event=0 n_req=0 n_rd=0 n_rd_L2_A=0 n_write=0 n_wr_bk=0 bw_util=0
+n_activity=0 dram_eff=-nan
+bk0: 0a 26606i bk1: 0a 26606i bk2: 0a 26606i bk3: 0a 26606i bk4: 0a 26606i bk5: 0a 26606i bk6: 0a 26606i bk7: 0a 26606i bk8: 0a 26606i bk9: 0a 26606i bk10: 0a 26606i bk11: 0a 26606i bk12: 0a 26606i bk13: 0a 26606i bk14: 0a 26606i bk15: 0a 26606i 
+
+------------------------------------------------------------------------
+
+Row_Buffer_Locality = -nan
+Row_Buffer_Locality_read = -nan
+Row_Buffer_Locality_write = -nan
+Bank_Level_Parallism = -nan
+Bank_Level_Parallism_Col = -nan
+Bank_Level_Parallism_Ready = -nan
+write_to_read_ratio_blp_rw_average = -nan
+GrpLevelPara = -nan 
+
+BW Util details:
+bwutil = 0.000000 
+total_CMD = 26606 
+util_bw = 0 
+Wasted_Col = 0 
+Wasted_Row = 0 
+Idle = 26606 
+
+BW Util Bottlenecks: 
+RCDc_limit = 0 
+RCDWRc_limit = 0 
+WTRc_limit = 0 
+RTWc_limit = 0 
+CCDLc_limit = 0 
+rwq = 0 
+CCDLc_limit_alone = 0 
+WTRc_limit_alone = 0 
+RTWc_limit_alone = 0 
+
+Commands details: 
+total_CMD = 26606 
+n_nop = 26606 
+Read = 0 
+Write = 0 
+L2_Alloc = 0 
+L2_WB = 0 
+n_act = 0 
+n_pre = 0 
+n_ref = 0 
+n_req = 0 
+total_req = 0 
+
+Dual Bus Interface Util: 
+issued_total_row = 0 
+issued_total_col = 0 
+Row_Bus_Util =  0.000000 
+CoL_Bus_Util = 0.000000 
+Either_Row_CoL_Bus_Util = 0.000000 
+Issued_on_Two_Bus_Simul_Util = 0.000000 
+issued_two_Eff = -nan 
+queue_avg = 0.000000 
+
+
+dram_util_bins: 0 0 0 0 0 0 0 0 0 0
+dram_eff_bins: 0 0 0 0 0 0 0 0 0 0
+mrqq: max=0 avg=0
+DRAM[10]: 16 bks, busW=2 BL=16 CL=20, tRRD=10 tCCD=4, tRCD=20 tRAS=50 tRP=20 tRC=62
+n_cmd=26606 n_nop=26604 n_act=1 n_pre=0 n_ref_event=0 n_req=1 n_rd=1 n_rd_L2_A=0 n_write=0 n_wr_bk=0 bw_util=0.0001503
+n_activity=62 dram_eff=0.06452
+bk0: 1a 26586i bk1: 0a 26606i bk2: 0a 26606i bk3: 0a 26606i bk4: 0a 26606i bk5: 0a 26606i bk6: 0a 26606i bk7: 0a 26606i bk8: 0a 26606i bk9: 0a 26606i bk10: 0a 26606i bk11: 0a 26606i bk12: 0a 26606i bk13: 0a 26606i bk14: 0a 26606i bk15: 0a 26606i 
+
+------------------------------------------------------------------------
+
+Row_Buffer_Locality = 1.000000
+Row_Buffer_Locality_read = 1.000000
+Row_Buffer_Locality_write = -nan
+Bank_Level_Parallism = 1.000000
+Bank_Level_Parallism_Col = 1.000000
+Bank_Level_Parallism_Ready = 1.000000
+write_to_read_ratio_blp_rw_average = 0.000000
+GrpLevelPara = 1.000000 
+
+BW Util details:
+bwutil = 0.000150 
+total_CMD = 26606 
+util_bw = 4 
+Wasted_Col = 20 
+Wasted_Row = 0 
+Idle = 26582 
+
+BW Util Bottlenecks: 
+RCDc_limit = 20 
+RCDWRc_limit = 0 
+WTRc_limit = 0 
+RTWc_limit = 0 
+CCDLc_limit = 0 
+rwq = 0 
+CCDLc_limit_alone = 0 
+WTRc_limit_alone = 0 
+RTWc_limit_alone = 0 
+
+Commands details: 
+total_CMD = 26606 
+n_nop = 26604 
+Read = 1 
+Write = 0 
+L2_Alloc = 0 
+L2_WB = 0 
+n_act = 1 
+n_pre = 0 
+n_ref = 0 
+n_req = 1 
+total_req = 1 
+
+Dual Bus Interface Util: 
+issued_total_row = 1 
+issued_total_col = 1 
+Row_Bus_Util =  0.000038 
+CoL_Bus_Util = 0.000038 
+Either_Row_CoL_Bus_Util = 0.000075 
+Issued_on_Two_Bus_Simul_Util = 0.000000 
+issued_two_Eff = 0.000000 
+queue_avg = 0.000000 
+
+
+dram_util_bins: 0 0 0 0 0 0 0 0 0 0
+dram_eff_bins: 0 0 0 0 0 0 0 0 0 0
+mrqq: max=0 avg=0
+DRAM[11]: 16 bks, busW=2 BL=16 CL=20, tRRD=10 tCCD=4, tRCD=20 tRAS=50 tRP=20 tRC=62
+n_cmd=26606 n_nop=26604 n_act=1 n_pre=0 n_ref_event=0 n_req=1 n_rd=1 n_rd_L2_A=0 n_write=0 n_wr_bk=0 bw_util=0.0001503
+n_activity=62 dram_eff=0.06452
+bk0: 1a 26586i bk1: 0a 26606i bk2: 0a 26606i bk3: 0a 26606i bk4: 0a 26606i bk5: 0a 26606i bk6: 0a 26606i bk7: 0a 26606i bk8: 0a 26606i bk9: 0a 26606i bk10: 0a 26606i bk11: 0a 26606i bk12: 0a 26606i bk13: 0a 26606i bk14: 0a 26606i bk15: 0a 26606i 
+
+------------------------------------------------------------------------
+
+Row_Buffer_Locality = 1.000000
+Row_Buffer_Locality_read = 1.000000
+Row_Buffer_Locality_write = -nan
+Bank_Level_Parallism = 1.000000
+Bank_Level_Parallism_Col = 1.000000
+Bank_Level_Parallism_Ready = 1.000000
+write_to_read_ratio_blp_rw_average = 0.000000
+GrpLevelPara = 1.000000 
+
+BW Util details:
+bwutil = 0.000150 
+total_CMD = 26606 
+util_bw = 4 
+Wasted_Col = 20 
+Wasted_Row = 0 
+Idle = 26582 
+
+BW Util Bottlenecks: 
+RCDc_limit = 20 
+RCDWRc_limit = 0 
+WTRc_limit = 0 
+RTWc_limit = 0 
+CCDLc_limit = 0 
+rwq = 0 
+CCDLc_limit_alone = 0 
+WTRc_limit_alone = 0 
+RTWc_limit_alone = 0 
+
+Commands details: 
+total_CMD = 26606 
+n_nop = 26604 
+Read = 1 
+Write = 0 
+L2_Alloc = 0 
+L2_WB = 0 
+n_act = 1 
+n_pre = 0 
+n_ref = 0 
+n_req = 1 
+total_req = 1 
+
+Dual Bus Interface Util: 
+issued_total_row = 1 
+issued_total_col = 1 
+Row_Bus_Util =  0.000038 
+CoL_Bus_Util = 0.000038 
+Either_Row_CoL_Bus_Util = 0.000075 
+Issued_on_Two_Bus_Simul_Util = 0.000000 
+issued_two_Eff = 0.000000 
+queue_avg = 0.000000 
+
+
+dram_util_bins: 0 0 0 0 0 0 0 0 0 0
+dram_eff_bins: 0 0 0 0 0 0 0 0 0 0
+mrqq: max=0 avg=0
+
+========= L2 cache stats =========
+L2_cache_bank[0]: Access = 2, Miss = 2, Miss_rate = 1.000, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[1]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[2]: Access = 1, Miss = 1, Miss_rate = 1.000, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[3]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[4]: Access = 9, Miss = 6, Miss_rate = 0.667, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[5]: Access = 1, Miss = 1, Miss_rate = 1.000, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[6]: Access = 4, Miss = 4, Miss_rate = 1.000, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[7]: Access = 5, Miss = 5, Miss_rate = 1.000, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[8]: Access = 1, Miss = 1, Miss_rate = 1.000, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[9]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[10]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[11]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[12]: Access = 1, Miss = 1, Miss_rate = 1.000, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[13]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[14]: Access = 5, Miss = 5, Miss_rate = 1.000, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[15]: Access = 4, Miss = 4, Miss_rate = 1.000, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[16]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[17]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[18]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[19]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[20]: Access = 1, Miss = 1, Miss_rate = 1.000, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[21]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+L2_cache_bank[22]: Access = 5, Miss = 1, Miss_rate = 0.200, Pending_hits = 3, Reservation_fails = 114
+L2_cache_bank[23]: Access = 0, Miss = 0, Miss_rate = -nan, Pending_hits = 0, Reservation_fails = 0
+L2_total_cache_accesses = 39
+L2_total_cache_misses = 32
+L2_total_cache_miss_rate = 0.8205
+L2_total_cache_pending_hits = 3
+L2_total_cache_reservation_fails = 114
+L2_total_cache_breakdown:
+	L2_cache_stats_breakdown[GLOBAL_ACC_R][HIT] = 2
+	L2_cache_stats_breakdown[GLOBAL_ACC_R][HIT_RESERVED] = 3
+	L2_cache_stats_breakdown[GLOBAL_ACC_R][MISS] = 9
+	L2_cache_stats_breakdown[GLOBAL_ACC_R][RESERVATION_FAIL] = 114
+	L2_cache_stats_breakdown[GLOBAL_ACC_R][SECTOR_MISS] = 14
+	L2_cache_stats_breakdown[LOCAL_ACC_R][HIT] = 0
+	L2_cache_stats_breakdown[LOCAL_ACC_R][HIT_RESERVED] = 0
+	L2_cache_stats_breakdown[LOCAL_ACC_R][MISS] = 0
+	L2_cache_stats_breakdown[LOCAL_ACC_R][RESERVATION_FAIL] = 0
+	L2_cache_stats_breakdown[LOCAL_ACC_R][SECTOR_MISS] = 0
+	L2_cache_stats_breakdown[CONST_ACC_R][HIT] = 0
+	L2_cache_stats_breakdown[CONST_ACC_R][HIT_RESERVED] = 0
+	L2_cache_stats_breakdown[CONST_ACC_R][MISS] = 0
+	L2_cache_stats_breakdown[CONST_ACC_R][RESERVATION_FAIL] = 0
+	L2_cache_stats_breakdown[CONST_ACC_R][SECTOR_MISS] = 0
+	L2_cache_stats_breakdown[TEXTURE_ACC_R][HIT] = 0
+	L2_cache_stats_breakdown[TEXTURE_ACC_R][HIT_RESERVED] = 0
+	L2_cache_stats_breakdown[TEXTURE_ACC_R][MISS] = 0
+	L2_cache_stats_breakdown[TEXTURE_ACC_R][RESERVATION_FAIL] = 0
+	L2_cache_stats_breakdown[TEXTURE_ACC_R][SECTOR_MISS] = 0
+	L2_cache_stats_breakdown[GLOBAL_ACC_W][HIT] = 2
+	L2_cache_stats_breakdown[GLOBAL_ACC_W][HIT_RESERVED] = 0
+	L2_cache_stats_breakdown[GLOBAL_ACC_W][MISS] = 7
+	L2_cache_stats_breakdown[GLOBAL_ACC_W][RESERVATION_FAIL] = 0
+	L2_cache_stats_breakdown[GLOBAL_ACC_W][SECTOR_MISS] = 2
+	L2_cache_stats_breakdown[BRU_ST_SPILL][HIT] = 0
+	L2_cache_stats_breakdown[BRU_ST_SPILL][HIT_RESERVED] = 0
+	L2_cache_stats_breakdown[BRU_ST_SPILL][MISS] = 0
+	L2_cache_stats_breakdown[BRU_ST_SPILL][RESERVATION_FAIL] = 0
+	L2_cache_stats_breakdown[BRU_ST_SPILL][SECTOR_MISS] = 0
+	L2_cache_stats_breakdown[BRU_ST_FILL][HIT] = 0
+	L2_cache_stats_breakdown[BRU_ST_FILL][HIT_RESERVED] = 0
+	L2_cache_stats_breakdown[BRU_ST_FILL][MISS] = 0
+	L2_cache_stats_breakdown[BRU_ST_FILL][RESERVATION_FAIL] = 0
+	L2_cache_stats_breakdown[BRU_ST_FILL][SECTOR_MISS] = 0
+	L2_cache_stats_breakdown[BRU_RT_SPILL][HIT] = 0
+	L2_cache_stats_breakdown[BRU_RT_SPILL][HIT_RESERVED] = 0
+	L2_cache_stats_breakdown[BRU_RT_SPILL][MISS] = 0
+	L2_cache_stats_breakdown[BRU_RT_SPILL][RESERVATION_FAIL] = 0
+	L2_cache_stats_breakdown[BRU_RT_SPILL][SECTOR_MISS] = 0
+	L2_cache_stats_breakdown[BRU_RT_FILL][HIT] = 0
+	L2_cache_stats_breakdown[BRU_RT_FILL][HIT_RESERVED] = 0
+	L2_cache_stats_breakdown[BRU_RT_FILL][MISS] = 0
+	L2_cache_stats_breakdown[BRU_RT_FILL][RESERVATION_FAIL] = 0
+	L2_cache_stats_breakdown[BRU_RT_FILL][SECTOR_MISS] = 0
+	L2_cache_stats_breakdown[LOCAL_ACC_W][HIT] = 0
+	L2_cache_stats_breakdown[LOCAL_ACC_W][HIT_RESERVED] = 0
+	L2_cache_stats_breakdown[LOCAL_ACC_W][MISS] = 0
+	L2_cache_stats_breakdown[LOCAL_ACC_W][RESERVATION_FAIL] = 0
+	L2_cache_stats_breakdown[LOCAL_ACC_W][SECTOR_MISS] = 0
+	L2_cache_stats_breakdown[L1_WRBK_ACC][HIT] = 0
+	L2_cache_stats_breakdown[L1_WRBK_ACC][HIT_RESERVED] = 0
+	L2_cache_stats_breakdown[L1_WRBK_ACC][MISS] = 0
+	L2_cache_stats_breakdown[L1_WRBK_ACC][RESERVATION_FAIL] = 0
+	L2_cache_stats_breakdown[L1_WRBK_ACC][SECTOR_MISS] = 0
+	L2_cache_stats_breakdown[L2_WRBK_ACC][HIT] = 0
+	L2_cache_stats_breakdown[L2_WRBK_ACC][HIT_RESERVED] = 0
+	L2_cache_stats_breakdown[L2_WRBK_ACC][MISS] = 0
+	L2_cache_stats_breakdown[L2_WRBK_ACC][RESERVATION_FAIL] = 0
+	L2_cache_stats_breakdown[L2_WRBK_ACC][SECTOR_MISS] = 0
+	L2_cache_stats_breakdown[INST_ACC_R][HIT] = 0
+	L2_cache_stats_breakdown[INST_ACC_R][HIT_RESERVED] = 0
+	L2_cache_stats_breakdown[INST_ACC_R][MISS] = 0
+	L2_cache_stats_breakdown[INST_ACC_R][RESERVATION_FAIL] = 0
+	L2_cache_stats_breakdown[INST_ACC_R][SECTOR_MISS] = 0
+	L2_cache_stats_breakdown[L1_WR_ALLOC_R][HIT] = 0
+	L2_cache_stats_breakdown[L1_WR_ALLOC_R][HIT_RESERVED] = 0
+	L2_cache_stats_breakdown[L1_WR_ALLOC_R][MISS] = 0
+	L2_cache_stats_breakdown[L1_WR_ALLOC_R][RESERVATION_FAIL] = 0
+	L2_cache_stats_breakdown[L1_WR_ALLOC_R][SECTOR_MISS] = 0
+	L2_cache_stats_breakdown[L2_WR_ALLOC_R][HIT] = 0
+	L2_cache_stats_breakdown[L2_WR_ALLOC_R][HIT_RESERVED] = 0
+	L2_cache_stats_breakdown[L2_WR_ALLOC_R][MISS] = 0
+	L2_cache_stats_breakdown[L2_WR_ALLOC_R][RESERVATION_FAIL] = 0
+	L2_cache_stats_breakdown[L2_WR_ALLOC_R][SECTOR_MISS] = 0
+	L2_cache_stats_breakdown[GLOBAL_ACC_R][TOTAL_ACCESS] = 28
+	L2_cache_stats_breakdown[GLOBAL_ACC_W][TOTAL_ACCESS] = 11
+	L2_cache_stats_breakdown[GLOBAL_ACC_R]_miss_rate = 0.8214
+RT_L2_cache_stats_breakdown:
+	rt_read_cold_miss = 4
+	rt_read_other_miss = 0
+	rt_stats[READ][HIT] = 0
+	rt_stats[READ][HIT_RESERVED] = 0
+	rt_stats[READ][MISS] = 4
+	rt_stats[READ][RESERVATION_FAIL] = 0
+	rt_stats[READ][SECTOR_MISS] = 12
+	rt_read_miss_rate = 1.0000
+	rt_stats[WRITE][HIT] = 0
+	rt_stats[WRITE][HIT_RESERVED] = 0
+	rt_stats[WRITE][MISS] = 6
+	rt_stats[WRITE][RESERVATION_FAIL] = 0
+	rt_stats[WRITE][SECTOR_MISS] = 0
+	rt_overall_miss_rate = 1.0000
+L2_total_cache_reservation_fail_breakdown:
+	L2_cache_stats_fail_breakdown[GLOBAL_ACC_R][MSHR_MERGE_ENTRY_FAIL] = 114
+L2_cache_data_port_util = 0.000
+L2_cache_fill_port_util = 0.000
+Stats for Kernel 0 Classification
+
+Min 0.000000 Max 15.000000 Average 2.904348 
+[ 104 668 0 57 0 52 0 0 0 0 0 99 1 2 0 52 0 0 0 0 0 0 0 0 0 ]
+Stats for Kernel 0 OP Classification
+
+Min 1.000000 Max 145.000000 Average 46.965412 
+[ 0 81 0 0 0 0 0 0 0 0 0 134 0 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 47 0 0 0 0 0 0 0 0 0 363 0 13 0 0 0 0 25 0 0 0 0 0 0 0 0 0 27 0 0 0 0 128 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 50 1 101 ]
+Ray tracing memory access distribution: 
+2	2	1	2	0	2	0	0	
+rt_num_hits = 0
+rt_num_any_hits = 2
+rt_n_anyhit_rays = 0
+rt_n_closesthit_rays = 1
+rt_n_total_rays = 1
+rt_max_tree_depth = 3
+rt_max_nodes_per_ray = 5
+rt_tot_nodes_per_ray = 5
+rt_avg_nodes_per_ray = 5.000000
+g_inst_type_latency = 0 1173 0 0 0 36 450 0 5395 0 0 2779 15 175 0 0 10 35 0 0 0 0 0 0 0 0 0 0 
+inst_class_by_shader
+0:104	578	0	55	0	36	0	0	0	0	0	87	1	2	0	0	0	0	0	0	
+1:0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+2:0	90	0	2	0	16	0	0	0	0	0	12	0	0	0	0	0	0	0	0	
+3:0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+4:0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+5:0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+6:0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+7:0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+8:0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+9:0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+10:0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+11:0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+12:0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+13:0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+14:0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+15:0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+
+icnt_total_pkts_mem_to_simt=39
+icnt_total_pkts_simt_to_mem=39
+LD_mem_lat_dist  0 0 1.0625 0 0 0 0 2 160 1 1 1 100 6.875 0 0.4375 5.3125 1 0.25 0 1 1 1 0 0 0 0
+ST_mem_lat_dist  0 0 0 0 0 0 0 1 2 160 0 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0
+----------------------------Interconnect-DETAILS--------------------------------
+Req_Network_injected_packets_num = 39
+Req_Network_cycles = 10377
+Req_Network_injected_packets_per_cycle =       0.0038 
+Req_Network_conflicts_per_cycle =       0.0010
+Req_Network_conflicts_per_cycle_util =       0.2564
+Req_Bank_Level_Parallism =       1.0000
+Req_Network_in_buffer_full_per_cycle =       0.0000
+Req_Network_in_buffer_avg_util =       0.0000
+Req_Network_out_buffer_full_per_cycle =       0.0000
+Req_Network_out_buffer_avg_util =       0.0002
+
+Reply_Network_injected_packets_num = 39
+Reply_Network_cycles = 10377
+Reply_Network_injected_packets_per_cycle =        0.0038
+Reply_Network_conflicts_per_cycle =        0.0000
+Reply_Network_conflicts_per_cycle_util =       0.0000
+Reply_Bank_Level_Parallism =       1.0000
+Reply_Network_in_buffer_full_per_cycle =       0.0000
+Reply_Network_in_buffer_avg_util =       0.0000
+Reply_Network_out_buffer_full_per_cycle =       0.0000
+Reply_Network_out_buffer_avg_util =       0.0001
+----------------------------END-of-Interconnect-DETAILS-------------------------
+
+
+gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 2 sec (2 sec)
+gpgpu_simulation_rate = 439 (inst/sec)
+gpgpu_simulation_rate = 5188 (cycle/sec)
+gpgpu_silicon_slowdown = 263107x
+Destroy streams for kernel 1: size 0
+LVP: Finding mapped memory for mem 0x5e1396ef03e0: mem->pmem 0x5e1396ef2000 
+LVP: Identified at 0x5e1396ef2000
+*****结果******2
+*****结果******2
+*****结果******0
+lvp_DestroyAccelerationStructureKHR
+GPGPU-Sim: *** exit detected ***
