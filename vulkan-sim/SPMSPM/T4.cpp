@@ -1554,7 +1554,7 @@ int main()
         &missSBT,
         &hitSBT,
         &callableSBT,
-        Resultrow,   // 图像宽度
+        rayCount,   // 图像宽度
         Resultcow,  // 图像高度
         1        // depth
     );
@@ -1573,6 +1573,7 @@ int main()
     cout<<"*****结果******"<<mappedResult[0]<<endl;
     cout<<"*****结果******"<<mappedResult[1]<<endl;
     cout<<"*****结果******"<<mappedResult[2]<<endl;
+
 
     // mappedResult[i] 就是 any-hit shader atomicAdd 的结果
     vkUnmapMemory(device, ResultMem);

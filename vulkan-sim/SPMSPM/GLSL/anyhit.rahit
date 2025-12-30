@@ -40,8 +40,9 @@ void main()
 
     // result[0]=value1;
     // result[1]=value[primID];
-    // atomicAdd(result[valueIndex], value1 * value2);
-    result[valueIndex] = result[valueIndex] + value1*value2;
+    float result_value = value1*value2;
+    atomicAdd(result[valueIndex], result_value);
+    // result[valueIndex] = result[valueIndex] + result_value;
 
 
     ignoreIntersectionEXT;

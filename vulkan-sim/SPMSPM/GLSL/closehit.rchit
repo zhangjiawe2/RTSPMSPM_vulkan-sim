@@ -11,7 +11,7 @@ layout(location = 0) rayPayloadInEXT vec3 payload;
 
 void main()
 {
-    uint primID = gl_PrimitiveID;
+    // uint primID = gl_PrimitiveID;
 
-    result[0]=payload.x;
+    result[1]=99;
 }
